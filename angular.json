@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/front-end-iti-final-project",
+            "outputPath": "dist/Front_End_ITI_Final_project/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,10 +88,64 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/Front_End_ITI_Final_project/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "Front_End_ITI_Final_project:build:development",
+              "serverTarget": "Front_End_ITI_Final_project:server:development"
+            },
+            "production": {
+              "browserTarget": "Front_End_ITI_Final_project:build:production",
+              "serverTarget": "Front_End_ITI_Final_project:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "Front_End_ITI_Final_project:build:production",
+              "serverTarget": "Front_End_ITI_Final_project:server:production"
+            },
+            "development": {
+              "browserTarget": "Front_End_ITI_Final_project:build:development",
+              "serverTarget": "Front_End_ITI_Final_project:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
