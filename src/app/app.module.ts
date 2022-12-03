@@ -9,8 +9,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { PaymentComponent } from './Component/payment/payment.component';
+import { AddProductComponent } from './Component/add-product/add-product.component';
+import { SellerProductsComponent } from './Component/seller-products/seller-products.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PaymentComponent, AddProductComponent, SellerProductsComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
