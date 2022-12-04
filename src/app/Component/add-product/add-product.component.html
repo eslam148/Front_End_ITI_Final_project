@@ -43,6 +43,12 @@
         </option>
       </select>
     </div>
+
+    <div class="mb-3">
+      <label for="prdName" class="form-label">{{"Add Image"|translate}}</label>
+        <input type="file"  class="form-control" name="prdName" id="prdName" 
+          required [class.is-valid]="" [class.is-invalid]="">
+    </div>
   
   
     <button type="submit" class="btn btn-success" [disabled]="">{{"Add"|translate}}</button>
