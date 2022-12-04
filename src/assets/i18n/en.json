@@ -1,3 +1,33 @@
 {
-  "Angular":"Angular"
+  "Angular":"Angular",
+  "Login":"Login ",
+  "Rigster":"Rigster",
+  "FirsrName":"FirsrName",
+  "lastName":"lastName",
+  "email":"email",
+  "password":"password",
+  "phone":" phone",
+  "username":"username",
+  "country":"country",
+  "city":"city",
+  "ConfirmPassword":"Confirm Password",
+  "forgetPassword":"Forget Password",
+  "haveAccount":"Do have an account?",
+  "NotHaveAccount":"Don't have an account?",
+  "enterInformations":"Please enter your Information!",
+  "LoginInfo":"Please enter your Email and password!",
+  "Complete":"Complete payment",
+  "Address":"Address",
+  "Price":"Price",
+  "Quantity":"Quantity",
+  "Name":"Name",
+  "payment":"payment",
+  "completetotal":"complete Total",
+  "AboutUS":"About US"
+
+
+
+
+
+
 }
