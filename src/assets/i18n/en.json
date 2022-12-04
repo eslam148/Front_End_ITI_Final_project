@@ -1,3 +1,32 @@
 {
-  "Angular":"Angular"
+  "Angular":"Angular",
+  "Deliver To":"DeliverTo",
+  "Egypt":"Egypt",
+  "All":"All",  
+  "Hello":"Hello",
+  "Sign in":"Sign in",
+  "Acoount&Lists":"Acoount&Lists",
+  "Your Account":"Your Account",
+  "Your orders":"Your orders",
+  "Your addresses":"Your addresses",
+  "Your seller account":"Your seller account",
+  "Orders":"Orders",
+  "Cart":"Cart",
+  "Get To know Us":"Get To know Us",
+  "About Us":"About Us",
+  "Contact Us":"Contact Us",
+  "Shop With Us":"Shop With Us",
+  "Make Money With Us":"Make Money With Us",
+  "Sell on Amzon":"Sell on Amzon",
+  "Let Us Help You":"Let Us Help You",
+  "Amazon App Download":"Amazon App Download",
+  "Register for free":"Register for free",
+  "©ITI-Group1-2022 Copyright":"©ITI-Group1-2022 Copyright",
+  "New Products":"New Products",
+  "Add to cart":"Add to cart",
+  "Today's Offers":"Today's Offers",
+  "product details":"product details",
+  "Best seller":"Best seller",
+  "view details":"view details"
+
 }
