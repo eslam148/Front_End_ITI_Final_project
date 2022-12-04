@@ -9,8 +9,16 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { ProductDetailsComponent } from './Component/product-details/product-details.component';
+import { CategoryProductComponent } from './Component/category-product/category-product.component';
+import { ContactUSComponent } from './Component/contact-us/contact-us.component';
+import { SideFilterComponent } from './Component/side-filter/side-filter.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+     ProductDetailsComponent,
+     CategoryProductComponent,
+     ContactUSComponent,
+     SideFilterComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
