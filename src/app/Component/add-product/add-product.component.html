@@ -1,46 +1,42 @@
 <form class="p-3">
 
     <div class="mb-3">
-      <label for="prdName" class="form-label">Product Name</label>
+      <label for="prdName" class="form-label">{{"Product Name"|translate}}</label>
         <input  type="text" class="form-control" name="prdName" id="prdName"
          pattern="[A-Za-z0-9]{3,}" required [class.is-valid]="" [class.is-invalid]="">
       <div class="alert alert-danger" hidden>
-          <div *ngIf="">Product Name Required</div>
-          <div *ngIf="">Product Name must be three letters at least</div>
+          <div *ngIf="">{{"Product Name Required"|translate}}</div>
+          <div *ngIf="">{{"Product Name must be three letters at least"|translate}}</div>
       </div>
     </div>
   
   
     <div class="mb-3">
-      <label for="prdQuant" class="form-label">Quantity</label>
+      <label for="prdQuant" class="form-label">{{"Quantity"|translate}}</label>
       <input #quantity="" type="number" class="form-control" name="prdQuant" id="prdQuant" required 
       [class.is-valid]="" [class.is-invalid]="">
       <div class="alert alert-danger" hidden>
-        <small *ngIf="">Quantity is Required</small>
+        <small *ngIf="">{{"Quantity is Required"|translate}}</small>
       </div>
     </div>
   
     <div class="mb-3">
-      <label for="prdPrc" class="form-label">Price</label>
+      <label for="prdPrc" class="form-label">{{"Price"|translate}}</label>
       <input #price="" type="number" class="form-control" name="prdPrc" id="prdPrc" required
       [class.is-valid]="" [class.is-invalid]="" >
       <div class="alert alert-danger" hidden>
-        <small *ngIf="">Price is Required</small>
+        <small *ngIf="">{{"Price is Required"|translate}}</small>
       </div>
     </div>
   
     <div class="mb-3">
-        <label for="prdName" class="form-label">Discription</label>
+        <label for="prdName" class="form-label">{{"Discription"|translate}}</label>
           <textarea class="form-control" name="prdName" id="prdName"
            pattern="[A-Za-z0-9]{3,}" required [class.is-valid]="" [class.is-invalid]=""></textarea>
-        <div class="alert alert-danger" hidden>
-            <div *ngIf="">Product Name Required</div>
-            <div *ngIf="">Product Name must be three letters at least</div>
-        </div>
       </div>
 
     <div class="mb-3">
-      <label for="prdCat" class="form-label">Select Category</label>
+      <label for="prdCat" class="form-label">{{"Select Category"|translate}}</label>
       <select class="form-control" name="prdCat" id="prdCat" required >
         <option >
          cat#1
@@ -49,5 +45,5 @@
     </div>
   
   
-    <button type="submit" class="btn btn-success" [disabled]="">Add</button>
+    <button type="submit" class="btn btn-success" [disabled]="">{{"Add"|translate}}</button>
   </form>
