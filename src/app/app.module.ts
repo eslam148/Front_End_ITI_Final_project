@@ -9,16 +9,23 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { ProductDetailsComponent } from './Component/product-details/product-details.component';
-import { CategoryProductComponent } from './Component/category-product/category-product.component';
-import { ContactUSComponent } from './Component/contact-us/contact-us.component';
-import { SideFilterComponent } from './Component/side-filter/side-filter.component';
+
+import { PaymentComponent } from './Component/payment/payment.component';
+import { AddProductComponent } from './Component/add-product/add-product.component';
+import { SellerProductsComponent } from './Component/seller-products/seller-products.component';
+import {ProductDetailsComponent} from './Component/product-details/product-details.component';
+import {CategoryProductComponent} from './Component/category-product/category-product.component';
+import {ContactUSComponent} from './Component/contact-us/contact-us.component';
+import {SideFilterComponent} from './Component/side-filter/side-filter.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
      CategoryProductComponent,
      ContactUSComponent,
-     SideFilterComponent],
+     SideFilterComponent,
+      PaymentComponent,
+       AddProductComponent,
+        SellerProductsComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
