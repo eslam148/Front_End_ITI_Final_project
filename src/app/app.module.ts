@@ -9,8 +9,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { FooterComponent } from './Components/Footer/footer/footer.component';
+import { HeaderComponent } from './Components/Header/header/header.component';
+import { HomeComponent } from './Components/Home/home/home.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
