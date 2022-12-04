@@ -35,6 +35,31 @@
   "Price is Required":"يجب إدخال سعر المنتج",
   "Discription":"الوصف",
   "Select Category":"أختر نوع المنتج",
-  "Add":"إضافة"
+  "Add":"إضافة",
+  "Login":"تسجيل دخول",
+  "Rigster":" تسجيل كمستخدم جديد",
+  "FirsrName":"الاسم الاول",
+  "lastName":"اسم العائله",
+  "email":"البريد الالكتروني",
+  "password":"الرقم السري",
+  "phone":"رقم الموبيل",
+  "username":"اسم المستخدم",
+  "country":"البلد",
+  "city":"المدينه",
+  "ConfirmPassword":"تاكيد الرقم السري",
+  "forgetPassword":"نسيت الرقم السري",
+  "haveAccount":"هل لديك حساب؟",
+  "NotHaveAccount":"ليس لديك حساب؟",
+  "enterInformations":"برجاء ملئ البيانات التاليه",
+  "LoginInfo":"برجاء ادخال البريد الالكتروني والرقم السري",
+  "Complete":"اتمم الدفع",
+  "Address":"العنوان",
+  "Price":"السعر",
+  "Quantity":"الكميه",
+  "Name":"الاسم",
+  "payment":"الدفع",
+  "completetotal":"ادفع الكل",
+  "AboutUS":"عننا"
+
 
 }

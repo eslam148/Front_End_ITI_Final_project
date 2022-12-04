@@ -17,6 +17,10 @@ import {ProductDetailsComponent} from './Component/product-details/product-detai
 import {CategoryProductComponent} from './Component/category-product/category-product.component';
 import {ContactUSComponent} from './Component/contact-us/contact-us.component';
 import {SideFilterComponent} from './Component/side-filter/side-filter.component';
+import { LoginComponent } from './Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { CartComponent } from './Components/cart/cart.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -25,7 +29,13 @@ import {SideFilterComponent} from './Component/side-filter/side-filter.component
      SideFilterComponent,
       PaymentComponent,
        AddProductComponent,
-        SellerProductsComponent],
+        SellerProductsComponent,
+      LoginComponent,
+       RegisterComponent,
+        CartComponent,
+         AboutUsComponent],
+
+
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
