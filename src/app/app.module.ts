@@ -9,8 +9,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-<<<<<<< HEAD
-
+import { FooterComponent } from './Components/Footer/footer/footer.component';
+import { HeaderComponent } from './Components/Header/header/header.component';
+import { HomeComponent } from './Components/Home/home/home.component';
 import { PaymentComponent } from './Component/payment/payment.component';
 import { AddProductComponent } from './Component/add-product/add-product.component';
 import { SellerProductsComponent } from './Component/seller-products/seller-products.component';
@@ -34,16 +35,11 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
       LoginComponent,
        RegisterComponent,
         CartComponent,
-         AboutUsComponent],
+         AboutUsComponent,
+         FooterComponent,
+         HeaderComponent,
+          HomeComponent],
 
-
-=======
-import { FooterComponent } from './Components/Footer/footer/footer.component';
-import { HeaderComponent } from './Components/Header/header/header.component';
-import { HomeComponent } from './Components/Home/home/home.component';
-@NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent],
->>>>>>> amira
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
