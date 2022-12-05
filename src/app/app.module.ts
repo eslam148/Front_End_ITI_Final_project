@@ -12,17 +12,18 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './Components/Footer/footer/footer.component';
 import { HeaderComponent } from './Components/Header/header/header.component';
 import { HomeComponent } from './Components/Home/home/home.component';
-import { PaymentComponent } from './Component/payment/payment.component';
-import { AddProductComponent } from './Component/add-product/add-product.component';
-import { SellerProductsComponent } from './Component/seller-products/seller-products.component';
-import {ProductDetailsComponent} from './Component/product-details/product-details.component';
-import {CategoryProductComponent} from './Component/category-product/category-product.component';
-import {ContactUSComponent} from './Component/contact-us/contact-us.component';
-import {SideFilterComponent} from './Component/side-filter/side-filter.component';
+import { PaymentComponent } from './Components/payment/payment.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
+import { SellerProductsComponent } from './Components/seller-products/seller-products.component';
+import {ProductDetailsComponent} from './Components/product-details/product-details.component';
+import {CategoryProductComponent} from './Components/category-product/category-product.component';
+import {ContactUSComponent} from './Components/contact-us/contact-us.component';
+import {SideFilterComponent} from './Components/side-filter/side-filter.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { LayoutComponent } from './Components/layout/layout.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -38,7 +39,8 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
          AboutUsComponent,
          FooterComponent,
          HeaderComponent,
-          HomeComponent],
+          HomeComponent,
+          LayoutComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
