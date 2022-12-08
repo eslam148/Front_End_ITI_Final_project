@@ -18,7 +18,14 @@ export class ProductService {
     };
   }
 
-  GetProudctByCategory(CatId:number): Observable<IProduct[]> {
-     return this.httpclient.get<IProduct[]>(`${environment.urlAPI}/ShowProductByCategory/${CatId}`);
+  GetProductByCategory(CatId: number): Observable<IProduct[]> {
+    return this.httpclient.get<IProduct[]>(
+      `${environment.urlAPI}/ShowProductByCategory/${CatId}`
+    );
+  }
+
+  GetProductByID(Id: number): Observable<IProduct> {
+    return this.httpclient
+      .get<IProduct>(`${environment.urlAPI}/GetProductById/${Id}`);
   }
 }

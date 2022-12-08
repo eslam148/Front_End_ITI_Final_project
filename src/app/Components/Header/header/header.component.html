@@ -1,7 +1,7 @@
 <div class="">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="firstNav">
         <div class="container-fluid row">
-          
+
             <a class="navbar-brand col-1" href="home">
                 <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="Logo" width="70em"
                     class="d-inline-block align-text-top">
@@ -40,18 +40,19 @@
 
                 </div>
 
-
+                  <button (click)="translate.use('en')" class="btn btn-outline-light" href="#">English-EN</button>
+                  <button (click)="translate.use('ar')" class="btn btn-outline-light" href="#">العربية-AR</button>
 
                 <li class="nav-item dropdown col-1">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/220px-Flag_of_Egypt.svg.png" 
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/220px-Flag_of_Egypt.svg.png"
                         width="30em">
                         En
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">English-EN</a></li>
-                        <li><a class="dropdown-item" href="#">العربية-AR</a></li>
+                        <li><button (click)="translate.use('en')" class="dropdown-item" href="#">English-EN</button></li>
+                        <li><button (click)="translate.use('ar')" class="dropdown-item" href="#">العربية-AR</button></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
