@@ -5,28 +5,20 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">{{"Name"|translate}}</th>
-          <th scope="col">{{"price"|translate}}</th>
+          <th scope="col">{{"Price"|translate}}</th>
           <th scope="col">{{"Quantity"|translate}}</th>
           <th scope="col">{{"Address"|translate}}</th>
           <th scope="col">{{"Delete"|translate}}</th>
+          <!-- <th scope="col">{{"Address"|translate}}</th>
+          <th scope="col">{{"payment"|translate}}</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngFor="let item of productInCart">
           <th scope="row">1</th>
-          <td>Iphone 13</td>
-          <td>40000</td>
-          <td>1</td>
-          <td>Sohag-sohag,First</td>
-          <td><a class="btn btn-success">{{"Delete"|translate}}</a></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Samsung A 32</td>
-          <td>12000</td>
-          <td>2</td>
-          <td>Sohag-sohag,First</td>
-          <td><a class="btn btn-success">{{"Delete"|translate}}</a></td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td><input class="form-control w-50" type="number" name="quantity" min="1" value = "1"></td>
         </tr>
       </tbody>
     </table>
@@ -38,11 +30,11 @@
     <h3 class="text-danger fs-1">{{"completetotal"|translate}}</h3>
   </div>
   <div class="col-3">
-    <span class="fs-1 text-danger">52000</span>
+    <span class="fs-1 text-danger">{{totalPrice| currency}}</span>
   </div>
   <!-- <input readonly type="number" value="52000" class="form-control"> -->
   <div class="col-3">
-    <a class="btn btn-success">{{"Complete"|translate}}</a>
-
+  <!-- //  <a class="btn btn-success">{{"Complete"|translate}}</a> -->
+<ngx-paypal [config]="payPalConfig"></ngx-paypal>
   </div>
 </div>
