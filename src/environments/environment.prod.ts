@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  urlCategories:'http://localhost:5136/api',
+
 };

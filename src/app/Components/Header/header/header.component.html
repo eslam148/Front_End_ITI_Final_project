@@ -1,7 +1,7 @@
 <div class="">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="firstNav">
         <div class="container-fluid row">
-          
+
             <a class="navbar-brand col-1" href="home">
                 <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="Logo" width="70em"
                     class="d-inline-block align-text-top">
@@ -45,7 +45,7 @@
                 <li class="nav-item dropdown col-1">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/220px-Flag_of_Egypt.svg.png" 
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/220px-Flag_of_Egypt.svg.png"
                         width="30em">
                         En
                     </a>
@@ -96,11 +96,15 @@
         </button>
 
         <div class="container-fluid ">
-            <ul class="navbar-nav collapse navbar-collapse" id="navbarNav2">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Today's Deals</a>
-                </li>
-                <li class="nav-item">
+            <ul class="navbar-nav collapse navbar-collapse"  id="navbarNav2">
+              <ng-container *ngFor="let cat of categories;let i=index;">
+                <li class="nav-item text-light">
+
+                  <a class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.name}}</a>
+              </li>
+              </ng-container>
+
+                <!-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Mobile phone</a>
                 </li>
                 <li class="nav-item">
@@ -114,7 +118,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Perfumes</a>
-                </li>
+                </li> -->
 
             </ul>
         </div>

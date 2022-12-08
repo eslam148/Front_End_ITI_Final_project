@@ -20,18 +20,18 @@ const routes: Routes = [
   {path:"sellerProducts",component:SellerProductsComponent},
   {path:"payment",component:PaymentComponent},
   {path:"cart",component:CartComponent},
-  {path:"category",component:CategoryProductComponent},
+  {path:"category/:id",component:CategoryProductComponent},
   {path:"contactus",component:ContactUSComponent},
   {path:"productdetails",component:ProductDetailsComponent},
-  
 
-  
- 
- 
+
+
+
+
   {path:"aboutus",component:AboutUsComponent},
 ]},
-{path:"register",component:RegisterComponent},
-{path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent},
+    {path:"login",component:LoginComponent},
    ]
 
 
