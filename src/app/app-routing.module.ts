@@ -12,6 +12,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { CategoryProductComponent } from './Components/category-product/category-product.component';
 import { ContactUSComponent } from './Components/contact-us/contact-us.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { SearchResultComponent } from './Components/search-result/search-result.component';
 
 const routes: Routes = [
   {path: '', component: LayoutComponent,children:[{path:'', redirectTo:'home',pathMatch:'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:"category/:id",component:CategoryProductComponent},
   {path:"contactus",component:ContactUSComponent},
   {path:"productdetails",component:ProductDetailsComponent},
+  {path:"Search/:ser",component:SearchResultComponent},
 
 
 

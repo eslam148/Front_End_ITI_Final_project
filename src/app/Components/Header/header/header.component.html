@@ -32,9 +32,9 @@
                             </ul>
                         </li>
                         <div class="input-group mb-3">
-                            <input type="search" class="form-control" aria-label="Search"
+                            <input type="search" class="form-control" aria-label="Search" #search
                                 aria-describedby="inputGroup-sizing-default">
-                            <button class="btn btn-warning" type="submit"><i class="bi bi-search"></i></button>
+                            <button class="btn btn-warning" type="submit" [routerLink]="['/Search',search.value]"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
 

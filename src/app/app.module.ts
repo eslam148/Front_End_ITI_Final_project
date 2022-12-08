@@ -24,6 +24,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { SearchResultComponent } from './Components/search-result/search-result.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -40,7 +41,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
          FooterComponent,
          HeaderComponent,
           HomeComponent,
-          LayoutComponent],
+          LayoutComponent,
+          SearchResultComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
