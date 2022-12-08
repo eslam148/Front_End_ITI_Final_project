@@ -25,6 +25,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -49,6 +50,7 @@ import { SearchResultComponent } from './Components/search-result/search-result.
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
       loader: {

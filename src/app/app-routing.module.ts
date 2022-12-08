@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:"payment",component:PaymentComponent},
   {path:"cart",component:CartComponent},
   {path:"category/:id",component:CategoryProductComponent},
+  {path:"category/sub/:sub_id",component:CategoryProductComponent},
   {path:"contactus",component:ContactUSComponent},
   {path:"productdetails",component:ProductDetailsComponent},
   {path:"Search/:ser",component:SearchResultComponent},
