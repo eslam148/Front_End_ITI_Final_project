@@ -16,23 +16,27 @@ import { SearchResultComponent } from './Components/search-result/search-result.
 
 const routes: Routes = [
   {
-    path: '', component: LayoutComponent, children: [
+    path: '',
+    component: LayoutComponent,
+    children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: "addProduct", component: AddProductComponent },
-      { path: "sellerProducts", component: SellerProductsComponent },
-      { path: "payment", component: PaymentComponent },
-      { path: "cart", component: CartComponent },
-      { path: "category/:id", component: CategoryProductComponent },
-      { path: "contactus", component: ContactUSComponent },
-      { path: "productdetails/:no", component: ProductDetailsComponent },
-      { path: "searching/:ser", component: SearchResultComponent },
-      { path: "aboutus", component: AboutUsComponent },
-    ]
+      { path: 'addProduct', component: AddProductComponent },
+      { path: 'sellerProducts', component: SellerProductsComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'category/:id', component: CategoryProductComponent },
+      { path: 'category/sub/:sub_id', component: CategoryProductComponent },
+
+      { path: 'contactus', component: ContactUSComponent },
+      { path: 'productdetails/:no', component: ProductDetailsComponent },
+      { path: 'searching/:ser', component: SearchResultComponent },
+      { path: 'aboutus', component: AboutUsComponent },
+    ],
   },
-  { path: "register", component: RegisterComponent },
-  { path: "login", component: LoginComponent },
-]
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {

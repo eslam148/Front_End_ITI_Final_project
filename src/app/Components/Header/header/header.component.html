@@ -90,7 +90,13 @@
                   <a class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.name}}</a>
               </li>
               </ng-container>
+  <ng-container *ngFor="let cat of categories;let i=index;">
+          <li class="nav-item text-light">
 
+            <a class="nav-link text-light" routerLinkActive="active" aria-current="page"
+              [routerLink]="['/category',cat.id]">{{cat.name}}</a>
+          </li>
+        </ng-container>
                 <!-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Mobile phone</a>
                 </li>
