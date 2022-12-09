@@ -24,6 +24,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -47,6 +48,7 @@ import { LayoutComponent } from './Components/layout/layout.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
       loader: {

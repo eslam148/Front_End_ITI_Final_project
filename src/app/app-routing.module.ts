@@ -23,6 +23,7 @@ const routes: Routes = [
   {path:"category/:id",component:CategoryProductComponent},
   {path:"contactus",component:ContactUSComponent},
   {path:"productdetails",component:ProductDetailsComponent},
+  {path:"productdetails/:no",component:ProductDetailsComponent},
 
 
 

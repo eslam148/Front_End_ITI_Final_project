@@ -52,9 +52,42 @@
 
   <h1 class="text-center mt-2">{{ "New Products" | translate }}</h1>
   
-    <div class="row">
+    <div class="row" >
+      <!-- card with Api -->
+      <div class="col-xl-2 col-md-4 mt-2" *ngFor="let prd of productList;let i=index;">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <div class="card-img-actions">
+              <img
+                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                class="card-img img-fluid"
+                width="96"
+                height="350"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="card-body bg-light text-center">
+            <ng-container >
+            <div class="mb-2">
+              <h6 class="font-weight-semibold mb-2">
+                <a [routerLink]="['/category',prd.category]" class="mb-2">{{prd.category}} </a>
+              </h6>
+              <a [routerLink]="['/productdetails',prd.no]" class="text-muted">{{prd.name}}</a>
+            </div>
+            <h3 class="mb-0 font-weight-semibold">{{prd.price}}</h3>
+            <p class="text-muted mb-3">
+              <a [routerLink]="['/productdetails',prd.no]">{{ "product details" | translate }}</a>
+            </p>
+            <button type="button" class="btn btn-warning">
+              <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
+            </button>
+          </ng-container>
+          </div> 
+        </div>
+      </div>
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -83,9 +116,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -114,9 +147,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -145,9 +178,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -176,9 +209,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -207,9 +240,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- card -->
-      <div class="col-xl-2 col-md-4 mt-2">
+      <!-- <div class="col-xl-2 col-md-4 mt-2">
         <div class="card shadow-lg">
           <div class="card-body">
             <div class="card-img-actions">
@@ -238,7 +271,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Best seller product -->
@@ -253,7 +286,7 @@
         </div>
         <div class="row">
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5" *ngFor="let prd of bestSellerList;let i=index;">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -270,16 +303,16 @@
               </div>
               <div class="part-2">
                 <h1>
-                  <a href="#" class="product-title">product name</a><br />
+                  <a [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}}</a><br />
                 </h1>
-                <a href="#"
+                <a [routerLink]="['/productdetails',prd.no]"
                   ><u>{{ "view details" | translate }}</u></a
                 >
               </div>
             </div>
           </div>
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -303,9 +336,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -329,9 +362,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -355,9 +388,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -381,9 +414,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -407,9 +440,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -433,9 +466,9 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
+          <!-- <div class="col-md-6 col-lg-4 col-xl-3 shadow-sm mb-4 pl-5">
             <div id="product-1" class="single-product">
               <div class="part-1">
                 <img
@@ -459,7 +492,7 @@
                 >
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       
     </section>

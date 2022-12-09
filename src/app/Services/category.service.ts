@@ -11,6 +11,7 @@ export class CategoryService {
 
   constructor(private HttpClient: HttpClient) { }
   getCategories(): Observable<ICategory[]> {
-    return this.HttpClient.get<ICategory[]>(`${environment.urlCategories}/category`)
+    // return this.HttpClient.get<ICategory[]>(`${environment.urlCategories}/category`)
+    return this.HttpClient.get<ICategory[]>(`${environment.BaseURL}/category`)
   }
 }

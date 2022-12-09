@@ -1,49 +1,61 @@
-<form class="p-3">
+<form class="p-3" #productForm="ngForm" (ngSubmit)="InsertNewProduct()">
 
     <div class="mb-3">
       <label for="prdName" class="form-label">{{"Product Name"|translate}}</label>
-        <input  type="text" class="form-control" name="prdName" id="prdName"
-         pattern="[A-Za-z0-9]{3,}" required [class.is-valid]="" [class.is-invalid]="">
-      <div class="alert alert-danger" hidden>
-          <div *ngIf="">{{"Product Name Required"|translate}}</div>
-          <div *ngIf="">{{"Product Name must be three letters at least"|translate}}</div>
+        <input #prdName="ngModel"  type="text" class="form-control" name="prdName" id="prdName"
+         pattern="[A-Za-z0-9]{3,}" required [(ngModel)]="newPrd.name"
+          [class.is-valid]="prdName.valid" [class.is-invalid]="prdName.invalid">
+      <div class="alert alert-danger" [hidden]="prdName.valid || prdName.untouched">
+          <div *ngIf="prdName.errors?.['required']">{{"Product Name Required"|translate}}</div>
+          <div *ngIf="prdName.errors?.['pattern']">{{"Product Name must be three letters at least"|translate}}</div>
       </div>
     </div>
   
   
     <div class="mb-3">
       <label for="prdQuant" class="form-label">{{"Quantity"|translate}}</label>
-      <input #quantity="" type="number" class="form-control" name="prdQuant" id="prdQuant" required 
-      [class.is-valid]="" [class.is-invalid]="">
-      <div class="alert alert-danger" hidden>
-        <small *ngIf="">{{"Quantity is Required"|translate}}</small>
+      <input #prdQuantity="ngModel" type="number" class="form-control" name="prdQuant" id="prdQuant" required 
+      [(ngModel)]="newPrd.qauntity" [class.is-valid]="prdQuantity.valid" [class.is-invalid]="prdQuantity.invalid">
+      <div class="alert alert-danger" [hidden]="prdQuantity.valid || prdQuantity.untouched">
+        <small *ngIf="prdQuantity.errors?.['required']">{{"Quantity is Required"|translate}}</small>
       </div>
     </div>
   
     <div class="mb-3">
       <label for="prdPrc" class="form-label">{{"Price"|translate}}</label>
-      <input #price="" type="number" class="form-control" name="prdPrc" id="prdPrc" required
-      [class.is-valid]="" [class.is-invalid]="" >
-      <div class="alert alert-danger" hidden>
-        <small *ngIf="">{{"Price is Required"|translate}}</small>
+      <input #prdprice="ngModel" type="number" class="form-control" name="prdPrc" id="prdPrc" required
+      [(ngModel)]="newPrd.price" [class.is-valid]="prdprice.valid" [class.is-invalid]="prdprice.invalid" >
+      <div class="alert alert-danger" [hidden]="prdprice.valid || prdprice.untouched">
+        <small *ngIf="prdprice.errors?.['required']">{{"Price is Required"|translate}}</small>
       </div>
     </div>
   
     <div class="mb-3">
-        <label for="prdName" class="form-label">{{"Discription"|translate}}</label>
-          <textarea class="form-control" name="prdName" id="prdName"
-           pattern="[A-Za-z0-9]{3,}" required [class.is-valid]="" [class.is-invalid]=""></textarea>
+        <label for="prddesc" class="form-label">{{"Discription"|translate}}</label>
+          <textarea #prdDesc="ngModel" class="form-control" name="prddesc" id="prddesc"
+           required [(ngModel)]="newPrd.description" 
+           [class.is-valid]="prdDesc.valid" [class.is-invalid]="prdDesc.invalid"></textarea>
+           <div class="alert alert-danger" [hidden]="prdDesc.valid || prdDesc.untouched">
+            <small *ngIf="prdDesc.errors?.['required']">{{"Description is Required"|translate}}</small>
+            <!-- <small *ngIf="prdDesc.errors?.['pattern']">{{"Description must be five letters at least"|translate}}</small> -->
+          </div>
       </div>
 
     <div class="mb-3">
       <label for="prdCat" class="form-label">{{"Select Category"|translate}}</label>
-      <select class="form-control" name="prdCat" id="prdCat" required >
-        <option >
-         cat#1
+      <select #catSelect="ngModel" class="form-control" name="prdCat" id="prdCat" required [(ngModel)]="newPrd.category">
+        <option *ngFor="let cat of categoryList" [value]="cat.name">
+          {{cat.name}}
         </option>
       </select>
+      <div class="alert alert-danger" [hidden]="catSelect.valid || catSelect.untouched">
+        <small *ngIf="catSelect.errors?.['required']">{{"You Must Select Category"|translate}}</small>
+    </div>
     </div>
   
   
-    <button type="submit" class="btn btn-success" [disabled]="">{{"Add"|translate}}</button>
+    <button type="submit" class="btn btn-success" [disabled]="productForm.invalid" >{{"Add"|translate}}</button>
+    <div class="bg-info">
+      {{newPrd|json}}
+  </div>
   </form>
