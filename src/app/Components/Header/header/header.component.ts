@@ -2,6 +2,8 @@ import { CategoryService } from './../../../Services/category.service';
 import { ICategory } from './../../../Model/icategory';
 import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit,AfterViewInit,OnChanges{
   categories:ICategory[] =[];
-  constructor(public translate:TranslateService,private CategoryService:CategoryService){
+  serchstd:string="";
+  constructor(public translate:TranslateService,private CategoryService:CategoryService,private router:Router){
 
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -28,6 +31,10 @@ export class HeaderComponent implements OnInit,AfterViewInit,OnChanges{
     })
 
   }
+search(s:string)
+{
+  this.router.navigate(['/searching',this.serchstd])
 
+}
 
 }

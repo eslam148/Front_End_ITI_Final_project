@@ -32,33 +32,19 @@
                             </ul>
                         </li>
                         <div class="input-group mb-3">
-                            <input type="search" class="form-control" aria-label="Search" #search
-                                aria-describedby="inputGroup-sizing-default">
-                            <button class="btn btn-warning" type="submit" [routerLink]="['/Search',search.value]"><i class="bi bi-search"></i></button>
+                            <input [(ngModel)]="serchstd" #seach type="text" name="ser" class="form-control" aria-label="Search"
+                  aria-describedby="inputGroup-sizing-default">
+                <button  class="btn btn-warning" (click)="search(seach.value)"><i
+                    class="bi bi-search"></i></button>
                         </div>
                     </form>
 
                 </div>
 
-                  <button (click)="translate.use('en')" class="btn btn-outline-light" href="#">English-EN</button>
-                  <button (click)="translate.use('ar')" class="btn btn-outline-light" href="#">العربية-AR</button>
+                  <button (click)="translate.use('en')" class="btn btn-outline-light p-0" href="#">English-EN</button>
+                  <button (click)="translate.use('ar')" class="btn btn-outline-light p-0" href="#">العربية-AR</button>
 
-                <li class="nav-item dropdown col-1">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/220px-Flag_of_Egypt.svg.png"
-                        width="30em">
-                        En
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><button (click)="translate.use('en')" class="dropdown-item" href="#">English-EN</button></li>
-                        <li><button (click)="translate.use('ar')" class="dropdown-item" href="#">العربية-AR</button></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+
 
                 <li class="nav-item dropdown col-2">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
