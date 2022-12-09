@@ -51,8 +51,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxPayPalModule
-    ,
+    NgxPayPalModule,
     FormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',

@@ -86,6 +86,9 @@
   "product details":"product details",
   "Best seller":"Best seller",
   "view details":"view details",
-  "Delete":"Delete"
+  "Delete":"Delete",
+  "Description is Required":"Description is Required",
+  "Description must be five letters at least":"Description must be five letters at least",
+  "You Must Select Category":"You Must Select Category"
 
 }
