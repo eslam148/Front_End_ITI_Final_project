@@ -15,32 +15,31 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 
 const routes: Routes = [
-  {path: '', component: LayoutComponent,children:[{path:'', redirectTo:'home',pathMatch:'full'},
-  {path:'home', component:HomeComponent},
-  {path:"addProduct",component:AddProductComponent},
-  {path:"sellerProducts",component:SellerProductsComponent},
-  {path:"payment",component:PaymentComponent},
-  {path:"cart",component:CartComponent},
-  {path:"category/:id",component:CategoryProductComponent},
-  {path:"contactus",component:ContactUSComponent},
-  {path:"productdetails",component:ProductDetailsComponent},
-  {path:"Search/:ser",component:SearchResultComponent},
+  {
+    path: '', component: LayoutComponent, children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: "addProduct", component: AddProductComponent },
+      { path: "sellerProducts", component: SellerProductsComponent },
+      { path: "payment", component: PaymentComponent },
+      { path: "cart", component: CartComponent },
+      { path: "category/:id", component: CategoryProductComponent },
+      { path: "contactus", component: ContactUSComponent },
+      { path: "productdetails", component: ProductDetailsComponent },
+      { path: "searching/:ser", component: SearchResultComponent },
 
-
-
-
-
-  {path:"aboutus",component:AboutUsComponent},
-]},
-  {path:"register",component:RegisterComponent},
-    {path:"login",component:LoginComponent},
-   ]
+      { path: "aboutus", component: AboutUsComponent },
+    ]
+  },
+  { path: "register", component: RegisterComponent },
+  { path: "login", component: LoginComponent },
+]
 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabledBlocking'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
