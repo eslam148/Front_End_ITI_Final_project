@@ -29,9 +29,7 @@
   "Product Name":"Product Name",
   "Product Name Required":"Product Name Required",
   "Product Name must be three letters at least":"Product Name must be three letters at least",
-  "Quantity":"Quantity",
   "Quantity is Required":"Quantity is Required",
-  "Price":"Price",
   "Price is Required":"Price is Required",
   "Discription":"Discription",
   "Select Category":"Select Category",
@@ -87,6 +85,10 @@
   "Today's Offers":"Today's Offers",
   "product details":"product details",
   "Best seller":"Best seller",
-  "view details":"view details"
+  "view details":"view details",
+  "Delete":"Delete",
+  "Description is Required":"Description is Required",
+  "Description must be five letters at least":"Description must be five letters at least",
+  "You Must Select Category":"You Must Select Category"
 
 }

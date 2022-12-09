@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  urlAPI: 'http://localhost:5136/api',
+  urlAPI: 'http://localhost:3000',
+  urlCategories:'http://localhost:5136/api',
+  baseURL: 'http://localhost:5136/api',
+  // urlCategories:'http://localhost:5136/api',
+  BaseURL:'http://localhost:5136/api',
 };
 
 /*

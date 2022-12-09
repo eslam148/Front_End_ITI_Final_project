@@ -25,6 +25,8 @@ import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import {NgxPayPalModule} from 'ngx-paypal';
+import { SearchResultComponent } from './Components/search-result/search-result.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -41,15 +43,16 @@ import {NgxPayPalModule} from 'ngx-paypal';
          FooterComponent,
          HeaderComponent,
           HomeComponent,
-          LayoutComponent],
+          LayoutComponent,
+          SearchResultComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxPayPalModule
-    ,
+    NgxPayPalModule,
+    FormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'ar',
       loader: {

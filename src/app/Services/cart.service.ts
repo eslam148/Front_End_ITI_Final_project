@@ -1,6 +1,4 @@
-import {JsonPipe} from '@angular/common';
 import { Injectable } from '@angular/core';
-import {from} from 'rxjs';
 import { IProduct } from './../Model/IProduct';
 
 @Injectable({

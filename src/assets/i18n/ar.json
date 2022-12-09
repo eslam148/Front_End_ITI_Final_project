@@ -54,8 +54,7 @@
   "LoginInfo":"برجاء ادخال البريد الالكتروني والرقم السري",
   "Complete":"اتمم الدفع",
   "Address":"العنوان",
-  "Price":"السعر",
-  "Quantity":"الكميه",
+  "Delete":"حذف",
   "Name":"الاسم",
   "payment":"الدفع",
   "completetotal":"ادفع الكل",
@@ -81,12 +80,15 @@
   "Let Us Help You":"دعنا نساعدك",
   "App Download":"تحميل التطبيق",
   "Register for free":"التسجيل مجانا",
-  "©ITI-Group1-2022 Copyright":"حقوق الطبع لعام 2022 محفوظة لمجموعة 1 - معهد تكنولوجيا المعلومات © ",
+  "©ITI-Group1-2022 Copyright":"حقوق الطبع لعام 2022 محفوظة لمعهد تكنولوجيا المعلومات © ",
   "New Products":"المنتجات الجديدة",
   "Add to cart":"اضافة الى العربة",
   "Today's Offers":"عروض اليوم",
   "product details":"تفاصيل المنتج",
   "Best seller":"الاكثر مبيعا",
-  "view details":"مشاهدة التفاصيل"
+  "view details":"مشاهدة التفاصيل",
+  "Description is Required":"وصف المنتج مطلوب",
+  "Description must be five letters at least":"وصف المنتج لا يقل عن خمسة احرف",
+  "You Must Select Category":"يجب اختيار صنف"
 
 }
