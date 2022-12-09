@@ -14,11 +14,12 @@
           </ul>
         </li>
         <li class="list-group-item border-0">Filter By Price
-          <label for="min">Minimmum Price</label>
-          <input id="min" type="number" name="min" value="Initial Value" [(ngModel)]="min" />
-          <label for="max">Maximmum Price</label>
-          <input  type="number" id="max" name="max" value="Initial Value" [(ngModel)]="max" />
-           <button class="btn btn-danger" (click)="FilterByPrice()">Filter</button>
+          <label class="form-lable" for="min">Minimmum Price</label>
+          <input class="form-control"  id="min" type="number" name="min" value="Initial Value" [(ngModel)]="min" />
+          <label class="form-lable"  for="max">Maximmum Price</label>
+          <input class="form-control "  type="number" id="max" name="max" value="Initial Value" [(ngModel)]="max" />
+
+          <button class="btn btn-warning mt-1" (click)="FilterByPrice()">Filter</button>
         </li>
       </ul>
   </div>

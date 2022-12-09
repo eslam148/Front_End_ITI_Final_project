@@ -26,6 +26,23 @@ export class ProductService {
     return this.httpclient
       .get<IProduct>(`${environment.baseURL}/GetProductById/${Id}`);
    }
+   getProdBySubCatId(sub_id:number):Observable<IProduct[]>{
+
+    return this.httpclient.get<IProduct[]>(`${environment.baseURL}/ShowProductBySubCat/${sub_id}`);
+
+  }
+
+  getProdBySubCatIdAndPrice(sub_id:number,min_pr:number,max_pr:number):Observable<IProduct[]>{
+
+    return this.httpclient.get<IProduct[]>(`${environment.baseURL}/GetProductByCatAndPrice/${sub_id}&${min_pr}&${max_pr}`);
+
+  }
+
+  getAllProducts():Observable<IProduct[]> {
+
+    return this.httpclient.get<IProduct[]>( `${environment.baseURL}/GetProducts`);
+
+  }
 }
 
 

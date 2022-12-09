@@ -24,12 +24,9 @@ import { RegisterComponent } from './Components/register/register.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
-<<<<<<< HEAD
 import {NgxPayPalModule} from 'ngx-paypal';
-=======
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { FormsModule } from '@angular/forms';
->>>>>>> elnobyv4
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -54,12 +51,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-<<<<<<< HEAD
     NgxPayPalModule
     ,
-=======
     FormsModule,
->>>>>>> elnobyv4
     TranslateModule.forRoot({
       defaultLanguage:'ar',
       loader: {

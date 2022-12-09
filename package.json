@@ -31,13 +31,10 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "bootstrap": "^5.2.3",
     "express": "^4.15.2",
-<<<<<<< HEAD
     "ngx-cookie-service": "^15.0.0",
     "ngx-paypal": "^10.1.0",
     "or": "^0.2.0",
-=======
     "ng2-search-filter": "^0.5.1",
->>>>>>> elnobyv4
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "typescript-cookie": "^1.0.4",

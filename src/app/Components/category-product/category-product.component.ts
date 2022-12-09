@@ -21,9 +21,10 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
    constructor(
     private ProductService: ProductService,
     private activeroute: ActivatedRoute,
-    @Inject(CartService) private CartService: CartService,private sub_serviece :SubCategoryService,
-              private rout:ActivatedRoute,
-              private prod_service:ProductService
+    @Inject(CartService) private CartService: CartService,
+    private sub_serviece :SubCategoryService,
+    private rout:ActivatedRoute,
+    private prod_service:ProductService
   ) {
     this.activeroute.paramMap.subscribe((paramMap) => {
       let CatID = paramMap.get('id') ? Number(paramMap.get('id')) : 1;
@@ -46,7 +47,6 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
       this.subList=[];
       for(let sub of subCat )
       {
-
         this.subList.push(sub);
       }
       //console.log(this.subList);
