@@ -27,6 +27,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import {NgxPayPalModule} from 'ngx-paypal';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { FormsModule } from '@angular/forms';
+import { UserSettingComponent } from './Components/user-setting/user-setting.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -44,7 +46,9 @@ import { FormsModule } from '@angular/forms';
          HeaderComponent,
           HomeComponent,
           LayoutComponent,
-          SearchResultComponent],
+          SearchResultComponent,
+          UserSettingComponent,
+          ChangePasswordComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
