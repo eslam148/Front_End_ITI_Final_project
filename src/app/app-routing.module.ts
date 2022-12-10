@@ -12,7 +12,8 @@ import { CartComponent } from './Components/cart/cart.component';
 import { CategoryProductComponent } from './Components/category-product/category-product.component';
 import { ContactUSComponent } from './Components/contact-us/contact-us.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
-//import { SearchResultComponent } from './Components/search-result/search-result.component';
+import { SearchResultComponent } from './Components/search-result/search-result.component';
+import {AuthService} from './Services/auth.service';
 
 const routes: Routes = [
   {
@@ -29,9 +30,10 @@ const routes: Routes = [
       { path: 'category/sub/:sub_id', component: CategoryProductComponent },
       { path: 'contactus', component: ContactUSComponent },
       { path: 'productdetails/:no', component: ProductDetailsComponent },
-     // { path: 'searching/:ser', component: SearchResultComponent },
+      { path: 'searching/:ser', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
     ],
+    canActivate: [AuthService],
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

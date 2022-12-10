@@ -15,7 +15,16 @@
                     <a class="nav-link active" aria-current="page" href="#">{{"Deliver To"|translate}}<br><i class="bi bi-geo-alt"></i>
                         {{"Egypt"|translate}}</a>
                 </li>
-                <div class="col-6">
+                 <li class="nav-item col-1" *ngIf="loggedIn" >
+                    <a class="nav-link active" (click)="check()">logout</a>
+                  </li>
+                   <li class="nav-item col-1" *ngIf="!loggedIn" >
+                    <a class="nav-link active" routerLink="/register">Register</a>
+                  </li>
+                  <li class="nav-item col-1" *ngIf="!loggedIn" >
+                    <a class="nav-link active" routerLink="/login">LogIn</a>
+                  </li>
+                <div class="col-4">
                     <form class="d-flex" role="search">
                         <li class=" nav-item dropdown">
                             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -32,10 +41,8 @@
                             </ul>
                         </li>
                         <div class="input-group mb-3">
-                            <input [(ngModel)]="serchstd" #seach type="text" name="ser" class="form-control" aria-label="Search"
-                  aria-describedby="inputGroup-sizing-default">
-                <button  class="btn btn-warning" (click)="search(seach.value)"><i
-                    class="bi bi-search"></i></button>
+                            <input [(ngModel)]="serchstd" #seach type="text" name="ser" class="form-control" aria-label="Search" aria-describedby="inputGroup-sizing-default">
+                            <button  class="btn btn-warning" (click)="search(seach.value)"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
 
@@ -70,6 +77,7 @@
                             <span class="position-absolute start-20 translate-middle badge rounded-pill"> 0 </span>
                         </i>{{"Cart"|translate}}</a>
                 </li>
+
             </ul>
 
         </div>
@@ -90,13 +98,7 @@
                   <a class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.name}}</a>
               </li>
               </ng-container>
-  <ng-container *ngFor="let cat of categories;let i=index;">
-          <li class="nav-item text-light">
 
-            <a class="nav-link text-light" routerLinkActive="active" aria-current="page"
-              [routerLink]="['/category',cat.id]">{{cat.name}}</a>
-          </li>
-        </ng-container>
                 <!-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Mobile phone</a>
                 </li>
