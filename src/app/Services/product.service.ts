@@ -12,15 +12,12 @@ export class ProductService {
   constructor(private httpclient: HttpClient) {
    const item = window.localStorage.getItem('token');
    let token: String = item ? JSON.parse(item) : '';
-      console.log(token);
-
    this.httpOptions = {
      headers: new HttpHeaders({
        'Content-Type': 'application/json',
        Authorization: 'Bearer ' + token,
      }),
    };
-   console.log(this.httpOptions);
 
   }
   GetProductByCategory(CatId: number): Observable<IProduct[]> {

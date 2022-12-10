@@ -27,6 +27,8 @@ import { LayoutComponent } from './Components/layout/layout.component';
 import {NgxPayPalModule} from 'ngx-paypal';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './Services/auth.service';
+
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -62,7 +64,7 @@ import { FormsModule } from '@angular/forms';
       },
     }),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

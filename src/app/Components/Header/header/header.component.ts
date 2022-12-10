@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
   check() {
     //this.authService.loggedIn();
     this.AuthService.flag.subscribe((f) => (this.loggedIn = f));
-    this.AuthService.logout();
+    this.AuthService.logout().subscribe();
     this.router.navigate(['/login']);
   }
 }
