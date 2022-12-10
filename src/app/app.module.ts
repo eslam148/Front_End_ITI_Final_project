@@ -29,6 +29,8 @@ import { SearchResultComponent } from './Components/search-result/search-result.
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './Services/auth.service';
 
+import { UserSettingComponent } from './Components/user-setting/user-setting.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -46,7 +48,9 @@ import { AuthService } from './Services/auth.service';
          HeaderComponent,
           HomeComponent,
           LayoutComponent,
-          SearchResultComponent],
+          SearchResultComponent,
+          UserSettingComponent,
+          ChangePasswordComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -14,6 +14,8 @@ import { ContactUSComponent } from './Components/contact-us/contact-us.component
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import {AuthService} from './Services/auth.service';
+import { UserSettingComponent } from './Components/user-setting/user-setting.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -32,8 +34,10 @@ const routes: Routes = [
       { path: 'productdetails/:no', component: ProductDetailsComponent },
       { path: 'searching/:ser', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
-    ],
-    canActivate: [AuthService],
+      { path: 'usersetting', component: UserSettingComponent },
+      { path: 'changepassword', component: ChangePasswordComponent },
+    ]/* ,
+    canActivate: [AuthService], */
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
