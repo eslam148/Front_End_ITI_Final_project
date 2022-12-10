@@ -15,20 +15,23 @@
                     <a class="nav-link active" aria-current="page" href="#">{{"Deliver To"|translate}}<br><i class="bi bi-geo-alt"></i>
                         {{"Egypt"|translate}}</a>
                 </li>
-                <div class="col-6">
+                <div class="col-5">
                     <form class="d-flex" role="search">
                         <li class=" nav-item dropdown">
                             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 {{"All"|translate}}
                             </a>
+                            
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <ng-container *ngFor="let cat of categories;let i=index;">
+                                <li><a class="dropdown-item" href="#">{{cat.name}}</a></li>
+                               </ng-container>
+                                <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                             </ul>
                         </li>
                         <div class="input-group mb-3">
@@ -40,11 +43,10 @@
                     </form>
 
                 </div>
-
-                  <button (click)="translate.use('en')" class="btn btn-outline-light p-0" href="#">English-EN</button>
-                  <button (click)="translate.use('ar')" class="btn btn-outline-light p-0" href="#">العربية-AR</button>
-
-
+                <div class="nav-item col-2 mx-2">
+                    <button (click)="translate.use('en')" class="btn btn-outline-light mx-1" href="#">English-EN</button>
+                    <button (click)="translate.use('ar')" class="btn btn-outline-light" href="#">العربية-AR</button>
+                </div>
 
                 <li class="nav-item dropdown col-2">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
