@@ -2,22 +2,22 @@
 <div class="col-2">
   <div class="row">
     <div class="col">
-      <h5 class="fs-6 fw-semibold">Eligible for Free Shipping</h5>
+      <h5 class="fs-6 fw-semibold row">Eligible for Free Shipping</h5>
       <ul  class="fs-6 fw-semibold list-group c">
-        <li class="list-group-item border-0">{{"Category"|translate}}
+        <li class="list-group-item border-0 row">{{"Category"|translate}}
           <ul class="list-group" *ngFor="let item of subList">
-            <li class="list-group-item  border-0" style="font-size: 1vw;">
-              <a [routerLink]="['/category/sub',item.id]" class="col-lg-3 col-md-6 col-sm-12 mb-3 text-decoration-none">
+            <li class="list-group-item  border-0 row" style="font-size: 1vw;">
+              <a [routerLink]="['/category/sub',item.id]" class="col-lg-3 col-md-6 col-sm-12 mb-3 text-decoration-none row">
                 {{item.brandName}}
               </a>
             </li>
           </ul>
         </li>
-        <li class="list-group-item border-0">Filter By Price
-          <label class="form-lable" for="min">Minimmum Price</label>
+        <li class="list-group-item border-0 row">Filter By Price
+          <label class="form-lable row" for="min">Minimmum Price</label>
           <input class="form-control"  id="min" type="number" name="min" value="Initial Value" [(ngModel)]="min" />
-          <label class="form-lable"  for="max">Maximmum Price</label>
-          <input class="form-control "  type="number" id="max" name="max" value="Initial Value" [(ngModel)]="max" />
+          <label class="form-lable row"  for="max">Maximmum Price</label>
+          <input class="form-control"  type="number" id="max" name="max" value="Initial Value" [(ngModel)]="max" />
 
           <button class="btn btn-warning mt-1" (click)="FilterByPrice()">Filter</button>
         </li>
