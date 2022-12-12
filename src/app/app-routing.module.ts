@@ -36,6 +36,7 @@ const routes: Routes = [
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'usersetting', component: UserSettingComponent },
       { path: 'changepassword', component: ChangePasswordComponent },
+       { path: 'details', component:ProductDetailsComponent },
     ]/* ,
     canActivate: [AuthService], */
   },
