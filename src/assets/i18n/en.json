@@ -89,6 +89,20 @@
   "Delete":"Delete",
   "Description is Required":"Description is Required",
   "Description must be five letters at least":"Description must be five letters at least",
-  "You Must Select Category":"You Must Select Category"
+  "You Must Select Category":"You Must Select Category",
+  "Feedback":"Feedback",
+  "opinion":"Your opinion matters",
+  "ideas":" Have some ideas how to improve our product?",
+  "Give":"Give us your feedback.",
+  "Your rating:":"Your rating:",
+  "Very good":"Very good",
+  "Good":"Good",
+  "Medicore":"Medicore",
+  "Bad":"Bad",
+  "Very bad":"Very bad",
+  "What could we improve?":"What could we improve?",
+  "Your feedback":"Your feedback",
+  "Cancel":"Cancel",
+  "Submit":"Submit"
 
 }

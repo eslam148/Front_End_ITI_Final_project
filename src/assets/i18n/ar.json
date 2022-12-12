@@ -89,6 +89,20 @@
   "view details":"مشاهدة التفاصيل",
   "Description is Required":"وصف المنتج مطلوب",
   "Description must be five letters at least":"وصف المنتج لا يقل عن خمسة احرف",
-  "You Must Select Category":"يجب اختيار صنف"
+  "You Must Select Category":"يجب اختيار صنف",
+  "Feedback":"تقييم",
+  "opinion":"رايك يهمنا",
+  "ideas":"هل لديك اي افكار لتحسين منتجنا؟",
+  "Give":"إعطنا رأيك",
+  "Your rating:":"تقييمك",
+  "Very good":"جيد جدا",
+  "Good":"جيد",
+  "Medicore":"متوسط",
+  "Bad":"سيئ",
+  "Very bad":"سيئ جدا",
+  "What could we improve?":"ما الذي يمكننا تحسينه؟",
+  "Your feedback":"تقييمك",
+  "Cancel":"إلغاء",
+  "Submit":"إرسال"
 
 }
