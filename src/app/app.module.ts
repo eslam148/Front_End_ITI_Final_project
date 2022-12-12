@@ -31,6 +31,7 @@ import { AuthService } from './Services/auth.service';
 
 import { UserSettingComponent } from './Components/user-setting/user-setting.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -50,7 +51,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
           LayoutComponent,
           SearchResultComponent,
           UserSettingComponent,
-          ChangePasswordComponent],
+          ChangePasswordComponent,
+         ],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

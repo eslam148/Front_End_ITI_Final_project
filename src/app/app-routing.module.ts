@@ -17,6 +17,7 @@ import {AuthService} from './Services/auth.service';
 import { UserSettingComponent } from './Components/user-setting/user-setting.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -36,8 +37,8 @@ const routes: Routes = [
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'usersetting', component: UserSettingComponent },
       { path: 'changepassword', component: ChangePasswordComponent },
-    ]/* ,
-    canActivate: [AuthService], */
+    ] /* ,
+    canActivate: [AuthService], */,
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

@@ -9,6 +9,7 @@ export class CartService {
   items: IProduct[] = [];
   localData!: string;
   addToCart(addedItem: IProduct) {
+    addedItem.qauntity = 1;
     this.items.push(addedItem);
     this.saveCart();
   }
