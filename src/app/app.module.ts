@@ -32,6 +32,8 @@ import { AuthService } from './Services/auth.service';
 import { UserSettingComponent } from './Components/user-setting/user-setting.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { UserAddressComponent } from './Components/user-address/user-address.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -52,7 +54,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
           SearchResultComponent,
           UserSettingComponent,
           ChangePasswordComponent,
-         ],
+          NotFoundComponent,
+          UserAddressComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

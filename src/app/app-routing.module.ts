@@ -16,6 +16,8 @@ import { SearchResultComponent } from './Components/search-result/search-result.
 import {AuthService} from './Services/auth.service';
 import { UserSettingComponent } from './Components/user-setting/user-setting.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { UserAddressComponent } from './Components/user-address/user-address.component';
 
 
 const routes: Routes = [
@@ -37,11 +39,13 @@ const routes: Routes = [
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'usersetting', component: UserSettingComponent },
       { path: 'changepassword', component: ChangePasswordComponent },
-    ] /* ,
-    canActivate: [AuthService], */,
+      { path: "Address", component: UserAddressComponent},
+    ]/* ,
+    canActivate: [AuthService], */
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  {path:'**', component: NotFoundComponent}
 ];
 
 @NgModule({

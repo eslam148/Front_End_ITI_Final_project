@@ -12,10 +12,10 @@
         </button>
             <ul class="navbar-nav mb-2 mb-lg-0 col-11 navbar-nav collapse navbar-collapse" id="navbarNav">
                 <li class="nav-item col-1">
-                    <a class="nav-link active" aria-current="page" href="#">{{"Deliver To"|translate}}<br><i class="bi bi-geo-alt"></i>
+                    <a class="nav-link active" aria-current="page" routerLink="/address">{{"Deliver To"|translate}}<br><i class="bi bi-geo-alt"></i>
                         {{"Egypt"|translate}}</a>
                 </li>
-                 <li class="nav-item col-1" *ngIf="loggedIn" >
+                 <!-- <li class="nav-item col-1" *ngIf="loggedIn" >
                     <a class="nav-link active" (click)="check()">logout</a>
                   </li>
                    <li class="nav-item col-1" *ngIf="!loggedIn" >
@@ -23,10 +23,10 @@
                   </li>
                   <li class="nav-item col-1" *ngIf="!loggedIn" >
                     <a class="nav-link active" routerLink="/login">LogIn</a>
-                  </li>
-                <div class="col-4">
+                  </li> -->
+                <div class="col-4 ">
                     <form class="d-flex" role="search">
-                        <li class=" nav-item dropdown">
+                        <!-- <li class=" nav-item dropdown">
                             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 {{"All"|translate}}
@@ -39,35 +39,27 @@
                                 </li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </li>
-                        <div class="input-group mb-3">
+                        </li> -->
+                        <div class="input-group  nav-item mx-3">
                             <input [(ngModel)]="serchstd" #seach type="text" name="ser" class="form-control" aria-label="Search" aria-describedby="inputGroup-sizing-default">
                             <button  class="btn btn-warning" (click)="search(seach.value)"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
 
                 </div>
+                <div class="nav-item col-2 mx-2">
+                    <button (click)="translate.use('en')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.80vw;" href="#">EN</button>
+                    <button (click)="translate.use('ar')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.75vw;" href="#">AR</button>
+                </div>
 
-                  <button (click)="translate.use('en')" class="btn btn-outline-light p-0" href="#">English-EN</button>
-                  <button (click)="translate.use('ar')" class="btn btn-outline-light p-0" href="#">العربية-AR</button>
+                <li class="nav-item col-1" *ngIf="loggedIn" >
+                    <a class="btn btn-outline-warning" (click)="check()">logout</a>
+                  </li>
 
+                  <li class="nav-item col-1" *ngIf="!loggedIn" >
+                    <a class="btn btn-outline-warning" routerLink="/login">LogIn</a>
+                  </li>
 
-
-                <li class="nav-item dropdown col-2">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{"Hello"|translate}}, {{"Sign in"|translate}}<br>
-                        {{"Acoount&Lists"|translate}}
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><button class="btn btn-warning" routerLink="signin">{{"Sign in"|translate}}</button></li>
-                        <li><a class="dropdown-item" href="#">{{"Your Account"|translate}}</a></li>
-                        <li><a class="dropdown-item" href="#">{{"Your orders"|translate}}</a></li>
-                        <!-- <li><a class="dropdown-item" href="#">{{"Your list"|translate}}</a></li> -->
-                        <li><a class="dropdown-item" href="#">{{"Your addresses"|translate}}</a></li>
-                        <li><a class="dropdown-item" href="#">{{"Your seller account"|translate}}</a></li>
-                    </ul>
-                </li>
                 <li class="nav-item col-1">
                     <a class="nav-link active" routerLink="/order">{{"Orders"|translate}}</a>
                 </li>
@@ -77,6 +69,10 @@
                             <span class="position-absolute start-20 translate-middle badge rounded-pill"> 0 </span>
                         </i>{{"Cart"|translate}}</a>
                 </li>
+                <li class="nav-item col-1" *ngIf="!loggedIn" >
+                    <a class="btn btn-warning rounded-pill btn-sm text-center" routerLink="/register">Register Now</a>
+                  </li>
+
 
             </ul>
 
@@ -99,21 +95,7 @@
               </li>
               </ng-container>
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Mobile phone</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Electronics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Fashion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Games</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Perfumes</a>
-                </li> -->
+
 
             </ul>
         </div>

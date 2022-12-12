@@ -2,8 +2,8 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CategoryService } from 'src/app/Services/category.service';
 import { ProductService } from 'src/app/Services/product.service';
 import { ICategory } from 'src/app/Model/icategory';
-import { Router } from 'express';
 import { IProduct } from 'src/app/Model/IProduct';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -16,9 +16,9 @@ export class AddProductComponent implements OnInit, OnChanges{
 
   newPrd:IProduct={} as IProduct
   prdList:IProduct[]=[]
-  errorMessege:string="";
+  // errorMessege:string="";
 
-constructor(private productService:ProductService, private categoryService:CategoryService){}
+constructor(private productService:ProductService, private categoryService:CategoryService, private router:Router){}
   ngOnChanges(): void {
    
 
@@ -30,9 +30,8 @@ constructor(private productService:ProductService, private categoryService:Categ
   }
 
   InsertNewProduct(){
-    this.productService.addNewProduct(this.newPrd).subscribe(p=>{this.newPrd=p},
-      (err)=>{this.errorMessege=err.messsage});
-      console.log(this.errorMessege)
+    this.productService.addNewProduct(this.newPrd).subscribe(p=>{this.router.navigate(['/sellerProducts'])});
+      // console.log(this.errorMessege)
     console.log(this.newPrd)
   }
 }
