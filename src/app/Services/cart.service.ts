@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './../Model/IProduct';
+import { IOrder } from './../Model/IOrder';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+  CountInCart = new BehaviorSubject<number>(0);
+  event = this.CountInCart.asObservable();
   constructor() {}
   items: IProduct[] = [];
   localData!: string;
+  count:number =0;
   addToCart(addedItem: IProduct) {
     addedItem.qauntity = 1;
     this.items.push(addedItem);
     this.saveCart();
+    this.count++
+    this.CountInCart.next(this.count);
   }
   saveCart(): void {
     localStorage.setItem('cart_items', JSON.stringify(this.items));
   }
-  getItems()  {
+  getItems() {
     this.items = this.loadCart();
     return this.items;
   }
@@ -27,7 +34,7 @@ export class CartService {
     return item ? JSON.parse(item) : [];
   }
 
-  clearCart()  {
+  clearCart() {
     this.items = [];
 
     localStorage.removeItem('cart_items');
@@ -35,13 +42,11 @@ export class CartService {
   itemInCart(item: IProduct): boolean {
     return this.items.findIndex((o) => o.no === item.no) > -1;
   }
-  totalPrice(){
-    let total:number=0;
-    if( this.items.length > 0){
-        for(let p of this.items){
-            total+=p.price;
-        }
-    }
-    return total;
+  AddOrder(Order: IProduct[]) {
+    localStorage.setItem('Order', JSON.stringify(Order));
+  }
+  GetOrder(): IProduct[] {
+    const item = window.localStorage.getItem('Order');
+    return item ? JSON.parse(item) : [];
   }
 }

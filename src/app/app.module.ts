@@ -34,6 +34,7 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserAddressComponent } from './Components/user-address/user-address.component';
+import { EditUserComponent } from './Components/edit-user/edit-user.component';
 @NgModule({
   declarations: [AppComponent,
      ProductDetailsComponent,
@@ -55,7 +56,8 @@ import { UserAddressComponent } from './Components/user-address/user-address.com
           UserSettingComponent,
           ChangePasswordComponent,
           NotFoundComponent,
-          UserAddressComponent],
+          UserAddressComponent,
+          EditUserComponent],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

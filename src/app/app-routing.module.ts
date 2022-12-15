@@ -18,6 +18,7 @@ import { UserSettingComponent } from './Components/user-setting/user-setting.com
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserAddressComponent } from './Components/user-address/user-address.component';
+import {EditUserComponent} from './Components/edit-user/edit-user.component';
 
 
 const routes: Routes = [
@@ -35,17 +36,20 @@ const routes: Routes = [
       { path: 'category/sub/:sub_id', component: CategoryProductComponent },
       { path: 'contactus', component: ContactUSComponent },
       { path: 'productdetails/:no', component: ProductDetailsComponent },
-      { path: 'searching/:ser', component: SearchResultComponent },
+      { path: 'searching/:ser?', component: SearchResultComponent },
+      { path: 'searching', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'usersetting', component: UserSettingComponent },
       { path: 'changepassword', component: ChangePasswordComponent },
-      { path: "Address", component: UserAddressComponent},
-    ]/* ,
-    canActivate: [AuthService], */
+      { path: 'Address', component: UserAddressComponent },
+      { path: 'EditProfule', component: EditUserComponent },
+      { path: 'SellerProduct', component: SellerProductsComponent },
+    ] /* ,
+    canActivate: [AuthService], */,
   },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  {path:'**', component: NotFoundComponent}
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

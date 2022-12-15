@@ -26,14 +26,14 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
     private rout:ActivatedRoute,
     private prod_service:ProductService
   ) {
-    this.activeroute.paramMap.subscribe((paramMap) => {
-      let CatID = paramMap.get('id') ? Number(paramMap.get('id')) : 1;
-      console.log(CatID);
-      this.ProductService.GetProductByCategory(CatID).subscribe((data) => {
-        this.products = data;
-        console.log(this.products);
-      });
-    });
+    // this.activeroute.paramMap.subscribe((paramMap) => {
+    //   let CatID = paramMap.get('id') ? Number(paramMap.get('id')) : 1;
+    //   console.log(CatID);
+    //   this.ProductService.GetProductByCategory(CatID).subscribe((data) => {
+    //     this.products = data;
+    //     console.log(this.products);
+    //   });
+    // });
   }
 
 
@@ -41,6 +41,7 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
 
      ngOnInit(): void {
 
+      
     this.rout.paramMap.subscribe(paramMap =>{
      let currentCatID=(paramMap.get('id'))?Number(paramMap.get('id')):1;
     this.sub_serviece.getSubCategory(currentCatID).subscribe(subCat=>{
@@ -49,9 +50,17 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
       {
         this.subList.push(sub);
       }
+       
       //console.log(this.subList);
     });
-
+this.ProductService.GetProductByCategory(currentCatID).subscribe((data) => {
+  // this.products = data;
+  this.prodList = [];
+  for (let pro of data) {
+    this.prodList.push(pro);
+  }
+   console.log(this.prodList);
+});
   });
 
 

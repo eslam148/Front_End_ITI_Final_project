@@ -4,6 +4,7 @@ import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@ang
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../Services/auth.service';
+import { CartService } from '../../../Services/cart.service';
 
 
 @Component({
@@ -15,14 +16,16 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
   loggedIn!: boolean;
   categories: ICategory[] = [];
   serchstd: string = '';
+  CartCount:number=0;
   constructor(
     public translate: TranslateService,
     private CategoryService: CategoryService,
     private router: Router,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+     private CartService: CartService
   ) {}
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
+  ngOnChanges(): void {
+   this.CartService.event.subscribe(c=> this.CartCount = c);
   }
   ngAfterViewInit(): void {
     console.log(this.categories);
@@ -36,7 +39,6 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
   search(s: string) {
     this.router.navigate(['/searching', this.serchstd]);
   }
-
   check() {
     //this.authService.loggedIn();
     this.AuthService.flag.subscribe((f) => (this.loggedIn = f));

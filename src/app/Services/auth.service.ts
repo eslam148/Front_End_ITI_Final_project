@@ -13,14 +13,14 @@ export class AuthService {
   flag = this.logged.asObservable();
   private httpOptions = {};
   constructor(private http: HttpClient, private router: Router) {
-     const item = window.localStorage.getItem('token');
-     let token: String = item ? JSON.parse(item) : '';
-     this.httpOptions = {
-       headers: new HttpHeaders({
-         'Content-Type': 'application/json',
-         Authorization: 'Bearer ' + token,
-       }),
-     };
+    const item = window.localStorage.getItem('token');
+    let token: String = item ? JSON.parse(item) : '';
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      }),
+    };
   }
   ChangePassword(ChangePassword: IChangePassword): Observable<IChangePassword> {
     return this.http
@@ -119,6 +119,14 @@ export class AuthService {
       status = false;
     }
     return status;
+  }
+  EditUser(UserInfo: IUserRegister): Observable<IUserRegister> {
+
+   return this.http.post<IUserRegister>(
+     `${environment.BaseURL}/EditUserInfo`,
+     JSON.stringify(UserInfo),
+     this.httpOptions
+   );
   }
 }
 

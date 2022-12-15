@@ -1,20 +1,18 @@
 export interface IProduct {
   no: number;
-  // id:number,
-  name: String;
-  description: String;
+  id?:number,
+  name: string;
+  description: string;
   price: number;
-  // created_at: Date;
-  // modified_at: Date;
-  // deleted_at?: Boolean;
-  category: String;
-  // subCategory: number;
-  // inventory_Id: null;
-  // discountID: number;
-  // discount:String;
-  // progress: number;
-  // isDeleted: Boolean;
-  qauntity: number;
-  // selledQauntity: number;
-  // sellerId: String;
+  category: string;
+  subCategory: number;
+  discountID: number;
+  qauntity: number; 
+  sellerId: String;
+  files: FileToUpload[];
+  images:string[];
+}
+export interface FileToUpload {
+  fileName: string ;
+  fileAsBase64: string ;
 }

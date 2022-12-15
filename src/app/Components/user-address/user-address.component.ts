@@ -13,9 +13,9 @@ export class UserAddressComponent {
   // errorMessege:string="";
 
   constructor(private userServices:UserServicesService, private router:Router){}
-  
+
   addAddress(){
-    this.userServices.addUserAddress(this.newAddress).subscribe(p=>{this.router.navigate(['/usersetting'])});
+    this.userServices.addUserAddress(this.newAddress).subscribe(p=>{this.router.navigate(['/payment'])});
       // console.log(this.errorMessege)
       console.log(this.newAddress)
   }

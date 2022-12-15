@@ -35,8 +35,7 @@
   </div>
   <!-- <input readonly type="number" value="52000" class="form-control"> -->
   <div class="col-3">
-    <a class="btn btn-warning" [routerLink]="['/Address']">Buy Process</a>
-<ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    <button class="btn btn-warning" [routerLink]="['/Address']" (click)="order()">Buy Process</button>
   </div>
 </div>
 

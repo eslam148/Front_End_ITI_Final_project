@@ -1,15 +1,16 @@
 <div class="row">
   <!-- card -->
-  <div class="col-xl-2 col-md-4 mt-2" *ngFor="let product of filterdProducts">
+  <div class="col-xl-3 col-md-4 mt-2" *ngFor="let product of filterdProducts">
     <div class="card shadow-lg">
       <div class="card-body">
         <div class="card-img-actions">
           <img
-            src="https://images.pexels.com/photos/5855210/pexels-photo-5855210.jpeg?auto=compress&cs=tinysrgb&w=600"
+            [src] = "'http://localhost:5291/Content/Images/'+product.images[0]"
             class="card-img img-fluid"
             width="96"
             height="350"
             alt=""
+          
           />
         </div>
       </div>
@@ -22,9 +23,9 @@
         </div>
         <h3 class="mb-0 font-weight-semibold">{{product.price}}</h3>
         <p class="text-muted mb-3">
-          <a href="#">{{ "product details" | translate }}</a>
+          <a [routerLink]="['/productdetails',product.no]">{{ "product details" | translate }}</a>
         </p>
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-warning" (click)=" addToCart(product)">
           <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
         </button>
       </div>

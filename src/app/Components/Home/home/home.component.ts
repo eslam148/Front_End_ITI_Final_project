@@ -11,6 +11,7 @@ import { CartService } from 'src/app/Services/cart.service';
 export class HomeComponent implements OnInit {
   productList: IProduct[] = [];
   bestSellerList: IProduct[] = [];
+  image: string[] = [];
   constructor(
     private produtService: ProductService,
     private route: Router,
@@ -24,8 +25,16 @@ export class HomeComponent implements OnInit {
     this.produtService
       .getBestSellerproducts()
       .subscribe((p) => (this.bestSellerList = p));
+    this.produtService.getimage().subscribe((p) => {
+      this.image = p;
+      console.log(p);
+    });
   }
-  addToCart(product:IProduct){
-    this.CartService.addToCart(product);
+ 
+  addToCart(item: IProduct) {
+    if (!this.CartService.itemInCart(item)) {
+      item.qauntity = 1;
+      this.CartService.addToCart(item); //add items in cart
+    }
   }
 }

@@ -7,7 +7,9 @@
 
   <div class="row">
     <div class="col-md-8">
-      <div class="card p-3">
+    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
+      <!-- <div class="card p-3">
         <h6 class="text-uppercase">{{"Payment details"|translate}}</h6>
         <div class="inputbox mt-3">
           <input
@@ -118,17 +120,15 @@
         <span>{{"Previous step"|translate}}</span>
 
         <button class="btn btn-success px-3">{{"Pay"|translate}}</button>
-      </div>
+      </div> -->
     </div>
 
     <div class="col-md-4">
       <div class="card card-blue p-3 text-white mb-3">
         <span>{{"You have to pay"|translate}}</span>
         <div class="d-flex flex-row align-items-end mb-3">
-          <h1 class="mb-0 yellow">$549</h1>
-          <span>.99</span>
+          <h1 class="mb-0 yellow">{{totalPrice | currency}}</h1>
         </div>
-
         <span
           >{{"Enjoy all the features and perk after you complete the payment"|translate}}</span
         >

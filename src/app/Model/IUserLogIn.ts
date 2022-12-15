@@ -30,6 +30,7 @@ export interface IUserLogIn {
 }
 
 export interface IUserRegister {
+  id?:string;
   firstName: String;
   lastName: String;
   userName: String;
@@ -38,4 +39,3 @@ export interface IUserRegister {
   password: String;
   confirmPassword: String;
 }
-
