@@ -33,23 +33,25 @@
                       <button (click)="translate.use('ar')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.75vw;" href="#">AR</button>
                   </li>
                 </div>
-              
-                 
-
+              <ng-container *ngIf="loggedIn.Role == 'Seller'">
+                <li class="nav-item col  mx-2">
+                    <a class="nav-link active" routerLink="/addProduct">Add Product</a>
+                </li>
+                 <li class="nav-item col  mx-2">
+                    <a class="nav-link active" routerLink="/SellerProduct">Show Products</a>
+                </li>
+                </ng-container>
                 <li class="nav-item col-1  mx-2">
                     <a class="nav-link active" routerLink="/order">{{"Orders"|translate}}</a>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link active col-md-1 col-12" routerLink="/cart"> <span class="badge">New</span><i class="bi bi-cart3 position-relative fs-2">
-                           
-                          </i></a>
-                          <!-- {{"Cart"|translate}} -->
+                    <a class="nav-link active col-md-1 col-12" routerLink="/cart"> <span class="badge">{{ count$ | async }}</span><i class="bi bi-cart3 position-relative fs-2"></i></a>
                 </li>
-                 <li class="nav-item col-1" *ngIf="!loggedIn" >
+                 <li class="nav-item col-1" *ngIf="!loggedIn.loggedIn" >
                     <a class="btn btn-outline-warning" routerLink="/login">LogIn</a>
                   </li>
-                <li class="nav-item col-md-2 " *ngIf="!loggedIn" >
+                <li class="nav-item col-md-2 " *ngIf="!loggedIn.loggedIn" >
                     <a class="btn btn-warning rounded-pill btn-sm text-center " routerLink="/register">Register Now</a>
                   </li>
            
@@ -71,7 +73,7 @@
                           <li>
                             <a class="dropdown-item" routerLink="/usersetting" href="#">Settings</a>
                           </li>
-                          <li>
+                          <li *ngIf="loggedIn.loggedIn">
                             <a class="dropdown-item" (click)="check()">Logout</a>
                           </li>
                         </ul>

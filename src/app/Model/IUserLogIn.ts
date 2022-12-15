@@ -12,7 +12,7 @@ export interface IUserInfo {
   profileImage: String;
   email: String;
   phoneNumber: String;
-  roles: [];
+  roles: string[];
   expires: Date;
 }
 export interface IChangePassword{
@@ -38,4 +38,9 @@ export interface IUserRegister {
   phoneNumber: String;
   password: String;
   confirmPassword: String;
+}
+
+export interface loginState{
+  loggedIn: boolean;
+  Role: String;
 }

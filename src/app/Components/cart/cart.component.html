@@ -7,7 +7,7 @@
           <th scope="col">{{"Name"|translate}}</th>
           <th scope="col">{{"Price"|translate}}</th>
           <th scope="col">{{"Quantity"|translate}}</th>
-          <th scope="col">{{"Address"|translate}}</th>
+          <th scope="col">total</th>
           <th scope="col">{{"Delete"|translate}}</th>
           <!-- <th scope="col">{{"Address"|translate}}</th>
           <th scope="col">{{"payment"|translate}}</th> -->
@@ -20,6 +20,8 @@
           <td>{{item.price}}</td>
           <td><input [(ngModel)] = "productInCart[i].qauntity" class="form-control w-50" type="number" name="quantity" min="1" value = "1" (change)="Changes()"></td>
           <td>{{productInCart[i].qauntity * item.price}}</td>
+          <td><button class="btn btn-danger" (click)="removeFromCart(item)">Delete</button></td>
+
         </tr>
       </tbody>
     </table>

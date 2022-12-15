@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {Store} from 'redux';
 import {AuthService} from './Services/auth.service';
 @Component({
   selector: 'app-root',
@@ -10,18 +11,18 @@ export class AppComponent {
   title = 'Front_End_ITI_Final_project';
   constructor(
     public translate: TranslateService,
-    private AuthService: AuthService
+    private AuthService: AuthService,
   ) {
-  const item = window.localStorage.getItem('token');
-  let token: String = item ? JSON.parse(item) : '';
-    if(item == null){
+    const item = window.localStorage.getItem('token');
+    let token: string = item ? JSON.parse(item) : '';
+    if (item == null) {
       console.log('Invalid token');
       AuthService.logout().subscribe();
-    }
-    else{
-            console.log('valid token');
-
-      AuthService.logged.next(true);
+    } else {
+      console.log('valid token');
+      const item = window.localStorage.getItem('Role');
+      let role: string = item ? JSON.parse(item) : '';
+      AuthService.logged.next({ loggedIn: true, Role: role });
     }
   }
 }

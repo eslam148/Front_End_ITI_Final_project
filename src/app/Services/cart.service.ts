@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './../Model/IProduct';
 import { IOrder } from './../Model/IOrder';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {decrement, increment} from '../ReduxStore/actions/CartAction';
+import {select, Store} from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root',
@@ -9,34 +11,37 @@ import {BehaviorSubject} from 'rxjs';
 export class CartService {
   CountInCart = new BehaviorSubject<number>(0);
   event = this.CountInCart.asObservable();
-  constructor() {}
+  count$: Observable<number>;
+
+  constructor(private store: Store<{ Cart: number }>) {
+    this.count$ = store.pipe(select('Cart'));
+  }
   items: IProduct[] = [];
   localData!: string;
-  count:number =0;
+  count: number = 0;
   addToCart(addedItem: IProduct) {
+    this.store.dispatch(increment());
     addedItem.qauntity = 1;
     this.items.push(addedItem);
     this.saveCart();
-    this.count++
+    this.count++;
     this.CountInCart.next(this.count);
   }
   saveCart(): void {
     localStorage.setItem('cart_items', JSON.stringify(this.items));
   }
   getItems() {
-    this.items = this.loadCart();
+    this.loadCart();
     return this.items;
   }
 
   loadCart() {
     const item = window.localStorage.getItem('cart_items');
-
-    return item ? JSON.parse(item) : [];
+    this.items = item ? JSON.parse(item) : [];
   }
 
   clearCart() {
     this.items = [];
-
     localStorage.removeItem('cart_items');
   }
   itemInCart(item: IProduct): boolean {
@@ -48,5 +53,13 @@ export class CartService {
   GetOrder(): IProduct[] {
     const item = window.localStorage.getItem('Order');
     return item ? JSON.parse(item) : [];
+  }
+  removeItem(item:IProduct) {
+    this.store.dispatch(decrement());
+    const index = this.items.findIndex((o) => o.id === item.id);
+    if (index > -1) {
+      this.items.splice(index, 1);
+      this.saveCart();
+    }
   }
 }

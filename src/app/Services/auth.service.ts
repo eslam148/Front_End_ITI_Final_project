@@ -4,12 +4,12 @@ import { IChangePassword, IUser, IUserLogIn, IUserRegister } from '../Model/IUse
 import {BehaviorSubject, catchError, map, Observable, of} from 'rxjs';
 import {environment} from 'src/environments/environment.prod';
 import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
-
+import {loginState} from '../Model/IUserLogIn'
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  logged = new BehaviorSubject<boolean>(false);
+  logged = new BehaviorSubject<loginState>({Role:"",loggedIn:false});
   flag = this.logged.asObservable();
   private httpOptions = {};
   constructor(private http: HttpClient, private router: Router) {
@@ -80,13 +80,14 @@ export class AuthService {
     window.localStorage.setItem('token', JSON.stringify(user.token));
     window.localStorage.setItem('user', JSON.stringify(user.data));
     window.localStorage.setItem('isLoggedIn', 'true');
+     window.localStorage.setItem('Role', user.data.roles[0]);
 
-    this.logged.next(true);
+    this.logged.next({ loggedIn: true, Role: user.data.roles[0]});
     this.router.navigate(['/home']);
   }
 
   logout(): Observable<any> {
-    this.logged.next(false);
+    this.logged.next({ loggedIn: false, Role: '' });
     localStorage.clear();
     return this.http.get<any>(
       `${environment.BaseURL}/SignOut`,
@@ -121,12 +122,11 @@ export class AuthService {
     return status;
   }
   EditUser(UserInfo: IUserRegister): Observable<IUserRegister> {
-
-   return this.http.post<IUserRegister>(
-     `${environment.BaseURL}/EditUserInfo`,
-     JSON.stringify(UserInfo),
-     this.httpOptions
-   );
+    return this.http.post<IUserRegister>(
+      `${environment.BaseURL}/EditUserInfo`,
+      JSON.stringify(UserInfo),
+      this.httpOptions
+    );
   }
 }
 

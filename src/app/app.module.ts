@@ -35,29 +35,33 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserAddressComponent } from './Components/user-address/user-address.component';
 import { EditUserComponent } from './Components/edit-user/edit-user.component';
+import {StoreModule} from '@ngrx/store';
+import {CartReducer} from './ReduxStore/Reducer/CartReducer';
 @NgModule({
-  declarations: [AppComponent,
-     ProductDetailsComponent,
-     CategoryProductComponent,
-     ContactUSComponent,
-     SideFilterComponent,
-      PaymentComponent,
-       AddProductComponent,
-        SellerProductsComponent,
-      LoginComponent,
-       RegisterComponent,
-        CartComponent,
-         AboutUsComponent,
-         FooterComponent,
-         HeaderComponent,
-          HomeComponent,
-          LayoutComponent,
-          SearchResultComponent,
-          UserSettingComponent,
-          ChangePasswordComponent,
-          NotFoundComponent,
-          UserAddressComponent,
-          EditUserComponent],
+  declarations: [
+    AppComponent,
+    ProductDetailsComponent,
+    CategoryProductComponent,
+    ContactUSComponent,
+    SideFilterComponent,
+    PaymentComponent,
+    AddProductComponent,
+    SellerProductsComponent,
+    LoginComponent,
+    RegisterComponent,
+    CartComponent,
+    AboutUsComponent,
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
+    LayoutComponent,
+    SearchResultComponent,
+    UserSettingComponent,
+    ChangePasswordComponent,
+    NotFoundComponent,
+    UserAddressComponent,
+    EditUserComponent,
+  ],
 
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -66,8 +70,9 @@ import { EditUserComponent } from './Components/edit-user/edit-user.component';
     HttpClientModule,
     NgxPayPalModule,
     FormsModule,
+    StoreModule.forRoot({ Cart: CartReducer }),
     TranslateModule.forRoot({
-      defaultLanguage:'ar',
+      defaultLanguage: 'ar',
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
