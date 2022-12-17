@@ -30,10 +30,7 @@ export class HomeComponent implements OnInit {
     this.produtService
       .getBestSellerproducts()
       .subscribe((p) => (this.bestSellerList = p));
-    this.produtService.getimage().subscribe((p) => {
-      this.image = p;
-      console.log(p);
-    });
+
   }
 
   addToCart(item: IProduct) {

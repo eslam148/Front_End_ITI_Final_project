@@ -5,15 +5,15 @@
         <div class="d-flex flex-column justify-content-center">
           <div class="main_image">
             <img
-              [src] = "'http://localhost:5291/Content/Images/'+product!.images[0]"
+              [src] = "'http://localhost:5291/Content/Images/'+product!.images2[0]"
               id="main_product_image"
               width="350"
             />
           </div>
-          <ng-container *ngIf="product!.images.length>1">
+          <ng-container *ngIf="product!.images2.length>1">
           <div class="thumbnail_images">
             <ul id="thumbnail" >
-              <li *ngFor="let item of product?.images">
+              <li *ngFor="let item of product?.images2">
                 <img
                   [src] = "'http://localhost:5291/Content/Images/'+item"
                   width="70"

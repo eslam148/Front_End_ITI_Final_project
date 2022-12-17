@@ -103,7 +103,9 @@ export class PaymentComponent implements OnInit {
             quantity : o.qauntity
           });
         })
-         this.OrderService.addOrderitems(this.OrderDB).subscribe();
+         this.OrderService.addOrderitems(this.OrderDB).subscribe(i=>{
+            localStorage.setItem('cart_items','')
+         });
       },
       onCancel: (data, actions) => {
         console.log('OnCancel', data, actions);
