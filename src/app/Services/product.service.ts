@@ -77,16 +77,17 @@ export class ProductService {
       this.httpOptions
     );
   }
-  getimage(): Observable<string[]> {
-    return this.httpclient.get<string[]>(
-      `http://localhost:5291/MVC/GetProdcut`,
+  addNewProduct(theFile: IProduct): Observable<IProduct> {
+    return this.httpclient.post<IProduct>(
+      'http://localhost:5291/MVC/AddProduct',
+      theFile,
       this.httpOptions
     );
   }
-  addNewProduct(theFile: IProduct): Observable<IProduct> {
-    return this.httpclient.post<IProduct>(
-      'http://localhost:5291/MVC/uploudProductImages',
-      theFile,
+
+  getSellerproducts(SellerId:string): Observable<IProduct[]> {
+    return this.httpclient.get<IProduct[]>(
+      `${environment.BaseURL}/GetSellerProduct/${SellerId}`,
       this.httpOptions
     );
   }

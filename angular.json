@@ -151,10 +151,7 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
     "analytics": "2436df87-deab-468b-aa76-f7d85f86be01"
-=======
-    "analytics": "b5875cd3-8ddb-4926-8a83-a5c9dc9b4365"
->>>>>>> ahmed
+
   }
 }

@@ -35,4 +35,17 @@ export class OrderService {
       this.httpOptions
     );
   }
+  getOrderDetalis(id: string): Observable<IOrderDetails[]> {
+    return this.httpclient.post<IOrderDetails[]>(
+      `${environment.BaseURL}/GetOrderDetails/${id}`,
+      this.httpOptions
+    );
+  }
+
+  getOrderItems(id: number): Observable<OrderItem[]> {
+    return this.httpclient.post<OrderItem[]>(
+      `${environment.BaseURL}/GetOrderitems/${id}`,
+      this.httpOptions
+    );
+  }
 }

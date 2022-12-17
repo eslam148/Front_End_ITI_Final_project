@@ -21,7 +21,7 @@ export class AppComponent {
     } else {
       console.log('valid token');
       const item = window.localStorage.getItem('Role');
-      let role: string = item ? JSON.parse(item) : '';
+      let role: string = item ? item : '';
       AuthService.logged.next({ loggedIn: true, Role: role });
     }
   }

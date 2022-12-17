@@ -37,6 +37,8 @@ import { UserAddressComponent } from './Components/user-address/user-address.com
 import { EditUserComponent } from './Components/edit-user/edit-user.component';
 import {StoreModule} from '@ngrx/store';
 import {CartReducer} from './ReduxStore/Reducer/CartReducer';
+import { ShowOrdersComponent } from './Components/show-orders/show-orders.component';
+import { OrderItemsComponent } from './Components/order-items/order-items.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,8 @@ import {CartReducer} from './ReduxStore/Reducer/CartReducer';
     NotFoundComponent,
     UserAddressComponent,
     EditUserComponent,
+    ShowOrdersComponent,
+    OrderItemsComponent,
   ],
 
   imports: [

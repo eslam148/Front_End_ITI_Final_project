@@ -20,7 +20,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0 fs-4">Full Name</h6>
+                <h6 class="mb-0 fs-4">{{"Full Name"|translate}}</h6>
               </div>
               <div class="col-sm-9 text-secondary fs-2">
                 {{userInfo.firstName + " " +userInfo.lastName }}
@@ -29,7 +29,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0 fs-4">Email</h6>
+                <h6 class="mb-0 fs-4">{{"Email"|translate}}</h6>
               </div>
               <div class="col-sm-9 text-secondary fs-2">
                 {{userInfo.email}}
@@ -38,7 +38,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3 fs-4">
-                <h6 class="mb-0 fs-2">Phone</h6>
+                <h6 class="mb-0 fs-4">{{"Phone Number"|translate}}</h6>
               </div>
               <div class="col-sm-9 text-secondary fs-2">
                 {{userInfo.phoneNumber}}
@@ -57,8 +57,8 @@
             <br>
             <div class="row mt-6">
               <div class="col-sm-12">
-                <a class="btn btn-info " routerLink="/EditProfule"  >Edit</a>
-                <a class="btn btn-success m-2" routerLink="/changepassword" >Change Password</a>
+                <a class="btn btn-info " routerLink="/EditProfule"  >{{"Edit"|translate}}</a>
+                <a class="btn btn-success m-2" routerLink="/changepassword" >{{"Change Password"|translate}}</a>
             </div>
             </div>
           </div>

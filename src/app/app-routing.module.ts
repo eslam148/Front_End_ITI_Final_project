@@ -19,6 +19,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserAddressComponent } from './Components/user-address/user-address.component';
 import {EditUserComponent} from './Components/edit-user/edit-user.component';
+import {ShowOrdersComponent} from './Components/show-orders/show-orders.component';
+import {OrderItemsComponent} from './Components/order-items/order-items.component';
 
 
 const routes: Routes = [
@@ -28,9 +30,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'addProduct', component: AddProductComponent },
-      { path: 'sellerProducts', component: SellerProductsComponent },
-      { path: 'payment', component: PaymentComponent },
+      { path: 'addProduct', component: AddProductComponent,canActivate: [AuthService] },
+      { path: 'sellerProducts', component: SellerProductsComponent,canActivate: [AuthService] },
+      { path: 'payment', component: PaymentComponent ,canActivate: [AuthService] },
       { path: 'cart', component: CartComponent },
       { path: 'category/:id', component: CategoryProductComponent },
       { path: 'category/sub/:sub_id', component: CategoryProductComponent },
@@ -39,11 +41,13 @@ const routes: Routes = [
       { path: 'searching/:ser?', component: SearchResultComponent },
       { path: 'searching', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
-      { path: 'usersetting', component: UserSettingComponent },
-      { path: 'changepassword', component: ChangePasswordComponent },
-      { path: 'Address', component: UserAddressComponent },
-      { path: 'EditProfule', component: EditUserComponent },
-      { path: 'SellerProduct', component: SellerProductsComponent },
+      { path: 'usersetting', component: UserSettingComponent ,canActivate: [AuthService] },
+      { path: 'changepassword', component: ChangePasswordComponent ,canActivate: [AuthService] },
+      { path: 'Address', component: UserAddressComponent , canActivate: [AuthService] },
+      { path: 'EditProfule', component: EditUserComponent ,canActivate: [AuthService] },
+      { path: 'SellerProduct', component: SellerProductsComponent, canActivate: [AuthService] },
+      { path: 'order', component: ShowOrdersComponent ,canActivate: [AuthService] },
+      { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [AuthService] }
     ] /* ,
     canActivate: [AuthService], */,
   },
