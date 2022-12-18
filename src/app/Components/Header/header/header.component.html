@@ -49,7 +49,7 @@
                     <a class="nav-link active col-md-1 col-12" routerLink="/cart"> <span class="badge">{{ count$ | async }}</span><i class="bi bi-cart3 position-relative fs-2"></i></a>
                 </li>
                  <li class="nav-item col-1" *ngIf="!loggedIn.loggedIn" >
-                    <a class="btn btn-outline-warning" routerLink="/login">{{"LogIn"|translate}}</a>
+                    <a class="btn btn-outline-warning btn-sm" routerLink="/login">{{"Login"|translate}}</a>
                   </li>
                 <li class="nav-item col-md-2 " *ngIf="!loggedIn.loggedIn" >
                     <a class="btn btn-warning rounded-pill btn-sm text-center " routerLink="/register">{{"Register"|translate}}</a>
