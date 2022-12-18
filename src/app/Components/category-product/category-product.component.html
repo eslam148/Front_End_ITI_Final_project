@@ -2,7 +2,7 @@
 <div class="col-2 d-none d-md-block">
   <div class="row">
     <div class="col">
-      <h5 class="fs-6 fw-semibold row">Eligible for Free Shipping</h5>
+      <h5 class="fs-6 fw-semibold row">{{"Eligible for Free Shipping"|translate}}</h5>
       <ul  class="fs-6 fw-semibold list-group c">
         <li class="list-group-item border-0 row">{{"Category"|translate}}
           <ul class="list-group" *ngFor="let item of subList">
@@ -13,13 +13,13 @@
             </li>
           </ul>
         </li>
-        <li class="list-group-item border-0 row">Filter By Price
-          <label class="form-lable row" for="min">Minimmum Price</label>
+        <li class="list-group-item border-0 row">{{"Filter By Price"|translate}}
+          <label class="form-lable row" for="min">{{"Minimmum Price"|translate}}</label>
           <input class="form-control"  id="min" type="number" name="min" value="Initial Value" [(ngModel)]="min" />
-          <label class="form-lable row"  for="max">Maximmum Price</label>
+          <label class="form-lable row"  for="max">{{"Maximmum Price"|translate}}</label>
           <input class="form-control"  type="number" id="max" name="max" value="Initial Value" [(ngModel)]="max" />
 
-          <button class="btn btn-warning mt-1" (click)="FilterByPrice()">Filter</button>
+          <button class="btn btn-warning mt-1" (click)="FilterByPrice()">{{"Filter"|translate}}</button>
         </li>
       </ul>
   </div>

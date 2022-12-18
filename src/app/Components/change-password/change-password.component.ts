@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IChangePassword} from 'src/app/Model/IUserLogIn';
+import {IChangePassword, IUserInfo} from 'src/app/Model/IUserLogIn';
 import {AuthService} from '../../Services/auth.service';
 @Component({
   selector: 'app-change-password',
@@ -7,7 +7,8 @@ import {AuthService} from '../../Services/auth.service';
   styleUrls: ['./change-password.component.css'],
 })
 export class ChangePasswordComponent {
-  constructor(private AuthService: AuthService) {}
+  userInfo!: IUserInfo
+  constructor(private AuthService: AuthService) {this.userInfo = this.loadUserInfo();}
 
   changePassword(ChangePassword: IChangePassword) {
     ChangePassword.id = this.loadUserInfo().id;
