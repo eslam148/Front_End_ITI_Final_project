@@ -26,7 +26,7 @@ import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { LayoutComponent } from './Components/layout/layout.component';
 import {NgxPayPalModule} from 'ngx-paypal';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './Services/auth.service';
 
 import { UserSettingComponent } from './Components/user-setting/user-setting.component';
@@ -39,6 +39,8 @@ import {StoreModule} from '@ngrx/store';
 import {CartReducer} from './ReduxStore/Reducer/CartReducer';
 import { ShowOrdersComponent } from './Components/show-orders/show-orders.component';
 import { OrderItemsComponent } from './Components/order-items/order-items.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +76,8 @@ import { OrderItemsComponent } from './Components/order-items/order-items.compon
     HttpClientModule,
     NgxPayPalModule,
     FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ Cart: CartReducer }),
     TranslateModule.forRoot({
       defaultLanguage: 'ar',

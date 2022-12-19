@@ -7,11 +7,14 @@ export interface IProduct {
   category: string;
   subCategory: number;
   discountID: number;
+  discount:string;
   qauntity: number;
   selledQauntity: number;
   sellerId: String;
   files: FileToUpload[];
   images2: string[];
+  ratingCount: number;
+  totalRating: number;
 }
 export interface FileToUpload {
   fileName: string ;

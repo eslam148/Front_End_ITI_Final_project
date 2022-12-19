@@ -4,6 +4,7 @@ import { ProductService } from './../../Services/product.service';
 import { Component, OnDestroy, OnInit, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from './../../Services/cart.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-search-result',
@@ -68,11 +69,20 @@ export class SearchResultComponent
       console.log('false');
       this.router.navigate(['/searching']);
       this.filterdProducts = this.products;
-
     }
     // location.reload();
   }
   ngOnDestroy(): void {
     // this.subscribe.unsubscribe();
   }
+  ratingcount = 0;
+  // Finalrating: any;
+
+  ratingcontrol = new FormControl(0);
+
+  // GetRating(count:number,rate:number):number {
+  //   let Finalrating = +(rate / count).toFixed(2);
+  //   console.log(Finalrating);
+  //   return Finalrating;
+  // }
 }

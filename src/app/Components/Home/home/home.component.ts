@@ -13,6 +13,7 @@ import {Observable} from 'rxjs';
 export class HomeComponent implements OnInit {
   productList: IProduct[] = [];
   bestSellerList: IProduct[] = [];
+ DiscountedProducts: IProduct[] = [];
   image: string[] = [];
   count$: Observable<number>;
   constructor(
@@ -30,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.produtService
       .getBestSellerproducts()
       .subscribe((p) => (this.bestSellerList = p));
-
+      this.produtService.GetDescountedProducts().subscribe(p=>this.DiscountedProducts=p);
   }
 
   addToCart(item: IProduct) {

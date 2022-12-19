@@ -74,9 +74,13 @@
           <a href="#" class="text-muted">{{prd.name}}</a>
         </div>
         <h3 class="mb-0 font-weight-semibold">{{prd.price}}</h3>
+         <div>
+          <ngb-rating [max]="5" [rate]="+(prd.totalRating / prd.ratingCount).toFixed(2)" [readonly]="true" ></ngb-rating>
+        </div>
         <p class="text-muted mb-3">
           <a [routerLink]="['/productdetails',prd.no]">{{ "product details" | translate }}</a>
         </p>
+
         <button type="button" class="btn btn-warning" (click)="addToCart(prd)">
           <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
         </button>
@@ -104,22 +108,20 @@
                   class="img-fluid"
                   [src] = "'http://localhost:5291/Content/Images/'+prd.images2[0]"
                 />
-                <ul>
-                  <li class="text-warning"><i class="bi bi-star-fill"></i></li>
-                  <li><i class="bi bi-star-fill"></i></li>
-                  <li><i class="bi bi-star-fill"></i></li>
-                  <li><i class="bi bi-star-fill"></i></li>
-                  <li><i class="bi bi-star-fill"></i></li>
-                </ul>
+
               </div>
               <div class="part-2">
                 <h1>
                   <a [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}}</a><br />
                 </h1>
+                <div>
+                  <ngb-rating [max]="5" [rate]="+(prd.totalRating / prd.ratingCount).toFixed(2)" [readonly]="true" ></ngb-rating>
+                </div>
                 <a [routerLink]="['/productdetails',prd.no]"
                   ><u>{{ "view details" | translate }}</u></a
                 >
               </div>
+
                 <button type="button" class="btn btn-warning" (click)="addToCart(prd)">
                   <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
                 </button>
@@ -135,30 +137,30 @@
       <h1 class="text-center">{{ "Today's Offers" | translate }}</h1>
 
         <div class="row">
-          <div class="col-lg-3 col-md-6 mt-2">
-            <div class="card shadow-lg">
-              <div class="card-body">
+          <div class="col-lg-3 col-md-6 mt-2"*ngFor="let prd of DiscountedProducts;let i=index;">
+            <div class="card shadow-lg" >
+              <div class="card-body" >
                 <div class="card-img-actions">
                   <img
-                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
-                    class="card-img img-fluid"
-                    width="96"
-                    height="350"
-                    alt=""
-                  />
+                  class="img-fluid"
+                  [src] = "'http://localhost:5291/Content/Images/'+prd.images2[0]"
+                />
                 </div>
               </div>
               <div class="card-body bg-light text-center">
                 <div class="mb-2">
                   <h6 class="font-weight-semibold mb-2">
-                    <a href="#" class="mb-2">Product category</a>
+                    <a href="#" class="mb-2">{{prd.category}}</a>
                   </h6>
-                  <a href="#" class="text-muted">product name</a>
+                  <a  [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}} </a>
                 </div>
-                <h3 class="mb-0 font-weight-semibold">new price after offer</h3>
-                <h3 class="mb-0 font-weight-semibold"><del>old price</del></h3>
+                <h3 class="mb-0 font-weight-semibold">{{prd.price-(+prd.discount)*(prd.price)}}</h3>
+                <h3 class="mb-0 font-weight-semibold"><del>{{prd.price}}</del></h3>
+                <div>
+                  <ngb-rating [max]="5" [rate]="+(prd.totalRating / prd.ratingCount).toFixed(2)" [readonly]="true" ></ngb-rating>
+                </div>
                 <p class="text-muted mb-3">
-                  <a href="#">{{ "product details" | translate }}</a>
+                  <a  [routerLink]="['/productdetails',prd.no]" class="product-title">{{ "product details" | translate }}</a>
                 </p>
                 <button type="button" class="btn btn-warning">
                   <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
@@ -166,99 +168,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 mt-2">
-            <div class="card shadow-lg">
-              <div class="card-body">
-                <div class="card-img-actions">
-                  <img
-                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
-                    class="card-img img-fluid"
-                    width="96"
-                    height="350"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="card-body bg-light text-center">
-                <div class="mb-2">
-                  <h6 class="font-weight-semibold mb-2">
-                    <a href="#" class="mb-2">Product category</a>
-                  </h6>
-                  <a href="#" class="text-muted">product name</a>
-                </div>
-                <h3 class="mb-0 font-weight-semibold">new price after offer</h3>
-                <h3 class="mb-0 font-weight-semibold"><del>old price</del></h3>
-                <p class="text-muted mb-3">
-                  <a href="#">{{ "product details" | translate }}</a>
-                </p>
-                <button type="button" class="btn btn-warning">
-                  <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-2">
-            <div class="card shadow-lg">
-              <div class="card-body">
-                <div class="card-img-actions">
-                  <img
-                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
-                    class="card-img img-fluid"
-                    width="96"
-                    height="350"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="card-body bg-light text-center">
-                <div class="mb-2">
-                  <h6 class="font-weight-semibold mb-2">
-                    <a href="#" class="mb-2">Product category</a>
-                  </h6>
-                  <a href="#" class="text-muted">product name</a>
-                </div>
-                <h3 class="mb-0 font-weight-semibold">new price after offer</h3>
-                <h3 class="mb-0 font-weight-semibold"><del>old price</del></h3>
-                <p class="text-muted mb-3">
-                  <a href="#">{{ "product details" | translate }}</a>
-                </p>
-                <button type="button" class="btn btn-warning">
-                  <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-2">
-            <div class="card shadow-lg">
-              <div class="card-body">
-                <div class="card-img-actions">
-                  <img
-                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
-                    class="card-img img-fluid"
-                    width="96"
-                    height="350"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="card-body bg-light text-center">
-                <div class="mb-2">
-                  <h6 class="font-weight-semibold mb-2">
-                    <a href="#" class="mb-2">Product category</a>
-                  </h6>
-                  <a href="#" class="text-muted">product name</a>
-                </div>
-                <h3 class="mb-0 font-weight-semibold">new price after offer</h3>
-                <h3 class="mb-0 font-weight-semibold"><del>old price</del></h3>
-                <p class="text-muted mb-3">
-                  <a href="#">{{ "product details" | translate }}</a>
-                </p>
-                <button type="button" class="btn btn-warning">
-                  <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
-                </button>
-              </div>
-            </div>
-          </div>
+
         </div>
 
 

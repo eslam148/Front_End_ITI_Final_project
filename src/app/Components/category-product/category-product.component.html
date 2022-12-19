@@ -50,9 +50,13 @@
           <a href="#" class="text-muted">{{prd.name}}</a>
         </div>
         <h3 class="mb-0 font-weight-semibold">{{prd.price}}</h3>
+        <div>
+          <ngb-rating [max]="5" [rate]="+(prd.totalRating / prd.ratingCount).toFixed(2)" [readonly]="true" ></ngb-rating>
+        </div>
         <p class="text-muted mb-3">
           <a [routerLink]="['/productdetails',prd.no]">{{ "product details" | translate }}</a>
         </p>
+
         <button type="button" class="btn btn-warning" (click)="addToCart(prd)">
           <i class="bi bi-cart3"></i> {{ "Add to cart" | translate }}
         </button>

@@ -82,3 +82,8 @@
   width: 150px;
   border-radius: 0px !important;
 }
+
+ngb-rating{
+    color: #FFC107;
+    font-size: 2vw;
+}

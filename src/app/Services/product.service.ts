@@ -55,14 +55,12 @@ export class ProductService {
       this.httpOptions
     );
   }
-
-  // addNewProduct(newPrd: IProduct): Observable<IProduct> {
-  //   return this.httpclient.post<IProduct>(
-  //     `${environment.BaseURL}/AddSellerProdcuts`,
-  //     JSON.stringify(newPrd),
-  //     this.httpOptions
-  //   );
-  // }
+  GetDescountedProducts(): Observable<IProduct[]> {
+    return this.httpclient.get<IProduct[]>(
+      `${environment.baseURL}/GetDescountedProducts`,
+      this.httpOptions
+    );
+  }
 
   getNewproducts(): Observable<IProduct[]> {
     return this.httpclient.get<IProduct[]>(
@@ -85,9 +83,15 @@ export class ProductService {
     );
   }
 
-  getSellerproducts(SellerId:string): Observable<IProduct[]> {
+  getSellerproducts(SellerId: string): Observable<IProduct[]> {
     return this.httpclient.get<IProduct[]>(
       `${environment.BaseURL}/GetSellerProduct/${SellerId}`,
+      this.httpOptions
+    );
+  }
+  addRating(Id: number, Rate: number): Observable<any> {
+    return this.httpclient.post<any>(
+      `${environment.BaseURL}/Rating/${Id}/${Rate}`,
       this.httpOptions
     );
   }
