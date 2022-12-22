@@ -6,12 +6,12 @@ export interface IUser {
 }
 
 export interface IUserInfo {
-  id: String;
-  firstName: String;
-  lastName: String;
-  profileImage: String;
-  email: String;
-  phoneNumber: String;
+  id: string;
+  firstName: string;
+  lastName: string;
+  profileImage: string;
+  email: string;
+  phoneNumber: string;
   roles: string[];
   expires: Date;
 }

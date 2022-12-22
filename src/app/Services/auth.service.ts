@@ -61,26 +61,46 @@ export class AuthService {
       );
   }
   SignUpSeller(IUserRegister: IUserRegister): Observable<IUser> {
-    return this.http.post<IUser>(
-      `${environment.BaseURL}/SignUpSeller`,
-      JSON.stringify(IUserRegister),
-      this.httpOptions
-    );
+    return this.http
+      .post<IUser>(
+        `${environment.BaseURL}/SignUpSeller`,
+        JSON.stringify(IUserRegister),
+        this.httpOptions
+      )
+      .pipe(
+        map((userResponse) => {
+        this.router.navigate(['/login']);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      );
   }
 
   SignUpBuyer(IUserRegister: IUserRegister): Observable<IUser> {
-    return this.http.post<IUser>(
-      `${environment.BaseURL}/SignUpForBuyer`,
-      JSON.stringify(IUserRegister),
-      this.httpOptions
-    );
+    return this.http
+      .post<IUser>(
+        `${environment.BaseURL}/SignUpForBuyer`,
+        JSON.stringify(IUserRegister),
+        this.httpOptions
+      )
+      .pipe(
+        map((userResponse) => {
+          this.router.navigate(['/login']);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      );
   }
 
   saveToken(user: IUser) {
     window.localStorage.setItem('token', JSON.stringify(user.token));
     window.localStorage.setItem('user', JSON.stringify(user.data));
     window.localStorage.setItem('isLoggedIn', 'true');
-     window.localStorage.setItem('Role', user.data.roles[0]);
+    window.localStorage.setItem('Role', user.data.roles[0]);
+    window.localStorage.setItem('ExpireDate', JSON.stringify(user.data.expires));
+
 
     this.logged.next({ loggedIn: true, Role: user.data.roles[0]});
     this.router.navigate(['/home']);
@@ -92,7 +112,14 @@ export class AuthService {
     return this.http.get<any>(
       `${environment.BaseURL}/SignOut`,
       this.httpOptions
-    );
+    ).pipe(
+        map((userResponse) => {
+          this.router.navigate(['/login']);
+        }),
+        catchError((error) => {
+          return of(error);
+        })
+      );;
   }
 
   canActivate(

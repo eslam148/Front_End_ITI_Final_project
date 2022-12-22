@@ -95,4 +95,11 @@ export class ProductService {
       this.httpOptions
     );
   }
+
+  getDiscount():Observable<any> {
+    return this.httpclient.get<IProduct[]>(
+      `${environment.BaseURL}/GetDiscounts`,
+      this.httpOptions
+    );
+  }
 }

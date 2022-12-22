@@ -1,5 +1,5 @@
-<form class="p-3" #productForm="ngForm" (ngSubmit)="InsertNewProduct()">
-{{productForm.value |json}}
+<form class="p-3" #productForm="ngForm">
+{{newPrd|json}}
     <div class="mb-3">
       <label for="prdName" class="form-label">{{"Product Name"|translate}}</label>
         <input #prdName="ngModel"  type="text" class="form-control" name="prdName" id="prdName"
@@ -47,8 +47,9 @@
     </div>
     <div class="mb-3">
       <label for="prdCat" class="form-label">{{"Select Category"|translate}}</label>
-      <select #catSelect="ngModel" class="form-control" name="prdCat" id="prdCat" required [(ngModel)]="newPrd.category">
-        <option *ngFor="let cat of categoryList" [value]="cat.name">
+      <select #catSelect="ngModel" (change)="GetSubcat(catSelect.value)" class="form-control" name="prdCat" id="prdCat" required [(ngModel)]="newPrd.category">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let cat of categoryList" [value]="cat.id">
           {{cat.name}}
         </option>
       </select>
@@ -56,13 +57,36 @@
         <small *ngIf="catSelect.errors?.['required']">{{"You Must Select Category"|translate}}</small>
     </div>
     </div>
+  <div class="mb-3">
+      <label for="prdSubcat" class="form-label">{{"Select Subcategory"|translate}}</label>
+      <select #SubcatSelect="ngModel" class="form-control" name="prdSubcat" id="prdSubcat" required [(ngModel)]="newPrd.subCategory">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let cat of subCategoryList" [value]="cat.id">
+          {{cat.brandName}}
+        </option>
+      </select>
+      <div class="alert alert-danger" [hidden]="SubcatSelect.valid || SubcatSelect.untouched">
+        <small *ngIf="SubcatSelect.errors?.['required']">{{"You Must Select Category"|translate}}</small>
+    </div>
+    </div>
 
-
-    <button type="submit" class="btn btn-success" [disabled]="productForm.invalid" >{{"Add"|translate}}</button>
+    <div class="mb-3">
+      <label for="Discounts" class="form-label">{{"Discount"|translate}}</label>
+      <select #DiscountsSelect="ngModel" class="form-control" name="discountID" id="Discounts" required [(ngModel)]="newPrd.discountID">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let Discount of Discounts" [value]="Discount.id">
+          {{Discount.name}}
+        </option>
+      </select>
+      <div class="alert alert-danger" [hidden]="DiscountsSelect.valid || DiscountsSelect.untouched">
+        <small *ngIf="DiscountsSelect.errors?.['required']">{{"You Must Select Category"|translate}}</small>
+    </div>
+  <button  class="btn btn-success" (click)="uploadFile()">{{"Upload File"|translate}}</button>
+    </div>
+    <button type="submit" (click)="InsertNewProduct()" class="btn btn-success" [disabled]="productForm.invalid" >{{"Add"|translate}}</button>
     <div class="bg-info">
       {{newPrd|json}}
   </div>
-  <button  class="btn btn-success" (click)="uploadFile()">{{"Upload File"|translate}}</button>
   </form>
 <!-- <input type="file" (change)="onFileChange($event)" /><br/>
 <button (click)="uploadFile()" [disabled]="!theFile">Upload File</button><br/><br/> -->

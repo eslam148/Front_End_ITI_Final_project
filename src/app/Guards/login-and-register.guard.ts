@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class BuyerGuard implements CanActivate {
-  constructor(private router:Router) {}
+export class LoginAndRegisterGuard implements CanActivate {
+  constructor(private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -19,12 +19,10 @@ export class BuyerGuard implements CanActivate {
       localStorage.getItem('token') &&
       localStorage.getItem('isLoggedIn') == 'true'
     ) {
-      return true;
-    } else {
-       this.router.navigate(['/login'], {
-        queryParams: { returnUrl: state.url },
-      });
+       this.router.navigate(['']);
       return false;
+    } else {
+      return true;
     }
   }
 }

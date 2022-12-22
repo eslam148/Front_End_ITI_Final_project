@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FooterComponent } from './Components/Footer/footer/footer.component';
 import { HeaderComponent } from './Components/Header/header/header.component';
 import { HomeComponent } from './Components/Home/home/home.component';
@@ -40,6 +40,7 @@ import {CartReducer} from './ReduxStore/Reducer/CartReducer';
 import { ShowOrdersComponent } from './Components/show-orders/show-orders.component';
 import { OrderItemsComponent } from './Components/order-items/order-items.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {TokenInterceptor} from './Services/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       },
     }),
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

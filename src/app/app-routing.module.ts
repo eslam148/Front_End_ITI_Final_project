@@ -21,6 +21,9 @@ import { UserAddressComponent } from './Components/user-address/user-address.com
 import {EditUserComponent} from './Components/edit-user/edit-user.component';
 import {ShowOrdersComponent} from './Components/show-orders/show-orders.component';
 import {OrderItemsComponent} from './Components/order-items/order-items.component';
+import {SellerGuard} from './Guards/seller-guard.guard';
+import {BuyerGuard} from './Guards/buyer-guard.guard';
+import {LoginAndRegisterGuard} from './Guards/login-and-register.guard';
 
 
 const routes: Routes = [
@@ -30,9 +33,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'addProduct', component: AddProductComponent,canActivate: [AuthService] },
-      { path: 'sellerProducts', component: SellerProductsComponent,canActivate: [AuthService] },
-      { path: 'payment', component: PaymentComponent ,canActivate: [AuthService] },
+      { path: 'addProduct', component: AddProductComponent,canActivate: [SellerGuard] },
+      { path: 'payment', component: PaymentComponent ,canActivate: [BuyerGuard] },
       { path: 'cart', component: CartComponent },
       { path: 'category/:id', component: CategoryProductComponent },
       { path: 'category/sub/:sub_id', component: CategoryProductComponent },
@@ -41,18 +43,17 @@ const routes: Routes = [
       { path: 'searching/:ser?', component: SearchResultComponent },
       { path: 'searching', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
-      { path: 'usersetting', component: UserSettingComponent ,canActivate: [AuthService] },
-      { path: 'changepassword', component: ChangePasswordComponent ,canActivate: [AuthService] },
-      { path: 'Address', component: UserAddressComponent , canActivate: [AuthService] },
-      { path: 'EditProfule', component: EditUserComponent ,canActivate: [AuthService] },
-      { path: 'SellerProduct', component: SellerProductsComponent, canActivate: [AuthService] },
-      { path: 'order', component: ShowOrdersComponent ,canActivate: [AuthService] },
-      { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [AuthService] }
-    ] /* ,
-    canActivate: [AuthService], */,
+      { path: 'usersetting', component: UserSettingComponent ,canActivate: [BuyerGuard] },
+      { path: 'changepassword', component: ChangePasswordComponent ,canActivate: [BuyerGuard] },
+      { path: 'Address', component: UserAddressComponent , canActivate: [BuyerGuard] },
+      { path: 'EditProfule', component: EditUserComponent ,canActivate: [BuyerGuard] },
+      { path: 'SellerProduct', component: SellerProductsComponent, canActivate: [SellerGuard] },
+      { path: 'order', component: ShowOrdersComponent ,canActivate: [BuyerGuard] },
+      { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [BuyerGuard] }
+    ]
   },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent,canActivate: [LoginAndRegisterGuard] },
+  { path: 'login', component: LoginComponent,canActivate: [LoginAndRegisterGuard] },
   { path: '**', component: NotFoundComponent },
 ];
 
