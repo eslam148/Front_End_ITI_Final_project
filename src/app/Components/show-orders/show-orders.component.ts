@@ -11,6 +11,8 @@ export class ShowOrdersComponent {
   constructor(private OrderService: OrderService) {
     const item = window.localStorage.getItem('user');
      let user = item ? JSON.parse(item) : [];
-    OrderService.getOrderDetalis(user.id).subscribe((od) => this.orderDetials = od);
+    OrderService.getOrderDetalis(user.id).subscribe((od) => {this.orderDetials = od
+      console.log(od);
+    });
   }
 }

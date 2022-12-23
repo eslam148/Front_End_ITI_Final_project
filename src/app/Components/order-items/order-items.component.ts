@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {OrderItem} from 'src/app/Model/IOrder';
+import {GetOrderItem, OrderItem} from 'src/app/Model/IOrder';
 import {OrderService} from '../../Services/order.service'
 @Component({
   selector: 'app-order-items',
@@ -9,7 +9,7 @@ import {OrderService} from '../../Services/order.service'
 })
 export class OrderItemsComponent {
   OrderId: number = 0;
-  items: OrderItem[]=[];
+  items: GetOrderItem[] = [];
   constructor(
     private _Route: ActivatedRoute,
     private OrderService: OrderService
@@ -20,6 +20,6 @@ export class OrderItemsComponent {
         : 0;
     });
 
-    OrderService.getOrderItems(this.OrderId).subscribe(i=> this.items = i);
+    OrderService.getOrderItems(this.OrderId).subscribe((i) => (this.items = i));
   }
 }

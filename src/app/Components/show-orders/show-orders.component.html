@@ -10,12 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of orderDetials;index in i">
-        <th scope="row" >i+1</th>
+      <tr *ngFor="let item of orderDetials;let i = index">
+        <th scope="row" >{{i+1}}</th>
         <td>{{item.payment_id}}</td>
         <td>{{item.total}}</td>
-        <td>{{item.progress}}</td>
-        <td><a class="btn btn-info" [routerLink]="['orderItems',item.Id]">{{"Detalis"|translate}}</a></td>
+        <td *ngIf="item.progress == 0">{{"Pending"|translate}}</td>
+        <td *ngIf="item.progress == 1">{{"Shipped"|translate}}</td>
+        <td *ngIf="item.progress == 2">{{"Delivered"|translate}}</td>
+        <td><a class="btn btn-info" [routerLink]="['/orderItems',item.id]">{{"Detalis"|translate}}</a></td>
       </tr>
       <tr>
     </tbody>

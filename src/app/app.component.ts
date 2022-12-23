@@ -17,7 +17,7 @@ export class AppComponent {
     let token: string = item ? JSON.parse(item) : '';
     if (item == null) {
       console.log('Invalid token');
-      AuthService.logout().subscribe();
+      //AuthService.logout().subscribe();
     } else {
       console.log('valid token');
       const item = window.localStorage.getItem('Role');

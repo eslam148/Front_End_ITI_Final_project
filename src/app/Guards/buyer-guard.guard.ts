@@ -21,7 +21,7 @@ export class BuyerGuard implements CanActivate {
     ) {
       return true;
     } else {
-       this.router.navigate(['/login'], {
+       this.router.navigate(['/home'], {
         queryParams: { returnUrl: state.url },
       });
       return false;

@@ -20,7 +20,10 @@ export class CartService {
   localData!: string;
   count: number = 0;
   addToCart(addedItem: IProduct) {
-    this.store.dispatch(increment());
+    if(!this.itemInCart(addedItem)){
+        this.store.dispatch(increment());
+    }
+
     addedItem.qauntity = 1;
     this.items.push(addedItem);
     this.saveCart();

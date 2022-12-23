@@ -7,7 +7,7 @@ export interface IProduct {
   category: string;
   subCategory: number;
   discountID: number;
-  discount:string;
+  discount: string;
   qauntity: number;
   selledQauntity: number;
   sellerId: String;
@@ -15,6 +15,7 @@ export interface IProduct {
   images2: string[];
   ratingCount: number;
   totalRating: number;
+  progress?: number;
 }
 export interface FileToUpload {
   fileName: string ;

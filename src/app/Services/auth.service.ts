@@ -114,7 +114,7 @@ export class AuthService {
       this.httpOptions
     ).pipe(
         map((userResponse) => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/home']);
         }),
         catchError((error) => {
           return of(error);

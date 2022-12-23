@@ -84,6 +84,7 @@ export class ProductService {
   }
 
   getSellerproducts(SellerId: string): Observable<IProduct[]> {
+    console.log(SellerId);
     return this.httpclient.get<IProduct[]>(
       `${environment.BaseURL}/GetSellerProduct/${SellerId}`,
       this.httpOptions

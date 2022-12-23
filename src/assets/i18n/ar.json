@@ -144,6 +144,13 @@
   "Page Not Found - lets take you":"الصفحة غير موجودة الرجوع الى",
   "Home":"الصفحة الرئيسية",
   "Select Subcategory":"الصنف الفرعي",
-  "Discount":"الخصم"
+  "Discount":"الخصم",
+  "Delivered":"تم التوصيل",
+  "Shipped" : "تم الشحن",
+  "Pending" : "لم يتم الشحن",
+  "totalprice":"السعر الكلي",
+  "Selled Quantity":"الكميه المباعه",
+  "description":"الوصف",
+  "published":"تم النشر"
 
 }

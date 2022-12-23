@@ -2,7 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {environment} from 'src/environments/environment';
-import {IOrderDetails,OrderItem} from '../Model/IOrder'
+import {GetOrderItem, IOrderDetails,OrderItem} from '../Model/IOrder'
 @Injectable({
   providedIn: 'root',
 })
@@ -36,14 +36,14 @@ export class OrderService {
     );
   }
   getOrderDetalis(id: string): Observable<IOrderDetails[]> {
-    return this.httpclient.post<IOrderDetails[]>(
+    return this.httpclient.get<IOrderDetails[]>(
       `${environment.BaseURL}/GetOrderDetails/${id}`,
       this.httpOptions
     );
   }
 
-  getOrderItems(id: number): Observable<OrderItem[]> {
-    return this.httpclient.post<OrderItem[]>(
+  getOrderItems(id: number): Observable<GetOrderItem[]> {
+    return this.httpclient.get<GetOrderItem[]>(
       `${environment.BaseURL}/GetOrderitems/${id}`,
       this.httpOptions
     );

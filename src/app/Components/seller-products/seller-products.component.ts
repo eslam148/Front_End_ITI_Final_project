@@ -11,8 +11,12 @@ export class SellerProductsComponent {
   constructor(private ProductService: ProductService) {
      const item = window.localStorage.getItem('user');
      let user = item ? JSON.parse(item) : [];
+            // console.log(user);
+
     ProductService.getSellerproducts(user.id).subscribe(
-      (p) => (this.products = p)
+      (p) => {this.products = p
+        console.log(p)
+      }
     );
   }
 

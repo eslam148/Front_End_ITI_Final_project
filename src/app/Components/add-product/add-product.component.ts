@@ -53,6 +53,7 @@ export class AddProductComponent implements OnInit, OnChanges {
     this.newPrd.sellerId = userInfo.id;
     this.productService.addNewProduct(this.newPrd).subscribe((p) => {
       console.log(p);
+      this.router.navigate(['/SellerProduct']);
     });
   }
   onFileChange(event: any) {

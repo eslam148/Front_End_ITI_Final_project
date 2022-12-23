@@ -1,13 +1,10 @@
 <form class="p-3" #productForm="ngForm">
-{{newPrd|json}}
     <div class="mb-3">
       <label for="prdName" class="form-label">{{"Product Name"|translate}}</label>
-        <input #prdName="ngModel"  type="text" class="form-control" name="prdName" id="prdName"
-         pattern="[A-Za-z0-9]{3,}" required [(ngModel)]="newPrd.name"
+        <input #prdName="ngModel"  type="text" class="form-control" name="prdName" id="prdName" required [(ngModel)]="newPrd.name"
           [class.is-valid]="prdName.valid" [class.is-invalid]="prdName.invalid">
       <div class="alert alert-danger" [hidden]="prdName.valid || prdName.untouched">
           <div *ngIf="prdName.errors?.['required']">{{"Product Name Required"|translate}}</div>
-          <div *ngIf="prdName.errors?.['pattern']">{{"Product Name must be three letters at least"|translate}}</div>
       </div>
     </div>
 
@@ -43,7 +40,8 @@
           <label for="images" class="col-sm-3 col-form-label">{{"Images"|translate}}</label>
             <div class="col-sm-9">
                 <input (change)="onFileChange($event)" id="images" type="file" class="form-control" accept="image/*" multiple/>
-              </div>
+            </div>
+             <button  class="btn btn-success" (click)="uploadFile()">{{"Upload File"|translate}}</button>
     </div>
     <div class="mb-3">
       <label for="prdCat" class="form-label">{{"Select Category"|translate}}</label>
@@ -81,12 +79,9 @@
       <div class="alert alert-danger" [hidden]="DiscountsSelect.valid || DiscountsSelect.untouched">
         <small *ngIf="DiscountsSelect.errors?.['required']">{{"You Must Select Category"|translate}}</small>
     </div>
-  <button  class="btn btn-success" (click)="uploadFile()">{{"Upload File"|translate}}</button>
     </div>
     <button type="submit" (click)="InsertNewProduct()" class="btn btn-success" [disabled]="productForm.invalid" >{{"Add"|translate}}</button>
-    <div class="bg-info">
-      {{newPrd|json}}
-  </div>
+
   </form>
 <!-- <input type="file" (change)="onFileChange($event)" /><br/>
 <button (click)="uploadFile()" [disabled]="!theFile">Upload File</button><br/><br/> -->

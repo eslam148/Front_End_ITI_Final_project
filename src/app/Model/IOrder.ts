@@ -9,7 +9,7 @@ export interface IOrder {
 }
 
 export interface IOrderDetails {
-  Id?: number;
+  id?: number;
   user_id: string;
   total: number;
   payment_id: number;
@@ -25,4 +25,9 @@ export interface OrderItem {
   created_at: string;
   modified_at: string;
   isDeleted: boolean;
+}
+export interface GetOrderItem {
+  name: string;
+  quantity: number;
+  price: number;
 }

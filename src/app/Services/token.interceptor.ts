@@ -15,7 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (token) {
       if (expireDate < DateNow && expireDate) {
         localStorage.clear();
-        this.router.navigate(['/login']);
+       this.router.navigate(['/login']);
         return EMPTY;
       }
        const bearer = `Bearer ${token}`;
@@ -25,7 +25,8 @@ export class TokenInterceptor implements HttpInterceptor {
             Authorization: bearer,
           }),
         });
-         return next.handle(reqClone);
+
+         return next.handle(req);
     }
     else{
         return next.handle(req);
