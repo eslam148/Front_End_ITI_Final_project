@@ -8,7 +8,7 @@ export interface IProduct {
   subCategory: number;
   discountID: number;
   discount: string;
-  qauntity: number;
+  quantity: number;
   selledQauntity: number;
   sellerId: String;
   files: FileToUpload[];

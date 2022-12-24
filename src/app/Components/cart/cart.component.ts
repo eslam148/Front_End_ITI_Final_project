@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
     //   console.log(this.totalPrice);
   }
   Changes() {
-    this.Prices = this.productInCart.map((i) => i.price * i.qauntity);
+    this.Prices = this.productInCart.map((i) => i.price * i.quantity);
     this.totalPrice = this.Prices.reduce((c, p) => p + c);
   }
   ngOnInit(): void {
@@ -42,10 +42,10 @@ export class CartComponent implements OnInit {
     this.calcTotal();
   }
   private calcTotal(){
-     this.Prices = this.productInCart.map((i) => i.price * i.qauntity); 
+     this.Prices = this.productInCart.map((i) => i.price * i.quantity);
      if (this.Prices.length == 0)  this.totalPrice = 0;
      else this.totalPrice = this.Prices.reduce((c, p) => p + c);
-     
+
   }
 }
 

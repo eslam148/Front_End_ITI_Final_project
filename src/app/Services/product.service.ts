@@ -97,10 +97,20 @@ export class ProductService {
     );
   }
 
-  getDiscount():Observable<any> {
+  getDiscount(): Observable<any> {
     return this.httpclient.get<IProduct[]>(
       `${environment.BaseURL}/GetDiscounts`,
       this.httpOptions
     );
+  }
+
+  Edit(EditProduct:IProduct,id:number): Observable<IProduct> {
+    EditProduct.no = id;
+    console.log(id);
+     return this.httpclient.post<IProduct>(
+       `${environment.BaseURL}/EditProduct`,
+       EditProduct,
+       this.httpOptions
+     );
   }
 }

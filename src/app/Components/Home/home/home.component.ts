@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   addToCart(item: IProduct) {
     //  this.store.dispatch(increment());
     if (!this.CartService.itemInCart(item)) {
-      item.qauntity = 1;
+      item.quantity = 1;
       this.CartService.addToCart(item); //add items in cart
     }
   }

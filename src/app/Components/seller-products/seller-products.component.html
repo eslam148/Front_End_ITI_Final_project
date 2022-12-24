@@ -11,6 +11,7 @@
         <th scope="col">{{"Quantity"|translate}}</th>
         <th scope="col">{{"Selled Quantity"|translate}} </th>
         <th scope="col">{{"Progress"|translate}} </th>
+        <th scope="col">{{"Edit"|translate}} </th>
 
       </tr>
     </thead>
@@ -21,11 +22,12 @@
         <td>{{item.description}}</td>
         <td>{{item.price}}</td>
         <td>{{item.category}}</td>
-        <td>{{item.qauntity}}</td>
+        <td>{{item.quantity}}</td>
         <td>{{item.selledQauntity}}</td>
 
          <td *ngIf="item.progress == 0">{{"Pending"|translate}}</td>
         <td *ngIf="item.progress == 1">{{"published"|translate}}</td>
+        <td><a class="btn btn-info" [routerLink]="['/EditProduct',item.no]">{{"Edit"|translate}}</a> </td>
 
       </tr>
       <tr>

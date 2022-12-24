@@ -41,7 +41,7 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
 
      ngOnInit(): void {
 
-      
+
     this.rout.paramMap.subscribe(paramMap =>{
      let currentCatID=(paramMap.get('id'))?Number(paramMap.get('id')):1;
     this.sub_serviece.getSubCategory(currentCatID).subscribe(subCat=>{
@@ -50,7 +50,7 @@ export class CategoryProductComponent implements OnChanges ,OnInit {
       {
         this.subList.push(sub);
       }
-       
+
       //console.log(this.subList);
     });
 this.ProductService.GetProductByCategory(currentCatID).subscribe((data) => {
@@ -92,7 +92,7 @@ this.ProductService.GetProductByCategory(currentCatID).subscribe((data) => {
   }
    addToCart(item: IProduct) {
     if (!this.CartService.itemInCart(item)) {
-      item.qauntity = 1;
+      item.quantity = 1;
       this.CartService.addToCart(item); //add items in cart
     }
   }

@@ -24,7 +24,7 @@ export class CartService {
         this.store.dispatch(increment());
     }
 
-    addedItem.qauntity = 1;
+    addedItem.quantity = 1;
     this.items.push(addedItem);
     this.saveCart();
     this.count++;

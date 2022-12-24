@@ -41,6 +41,7 @@ import { ShowOrdersComponent } from './Components/show-orders/show-orders.compon
 import { OrderItemsComponent } from './Components/order-items/order-items.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from './Services/token.interceptor';
+import { EditProductComponent } from './Components/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {TokenInterceptor} from './Services/token.interceptor';
     EditUserComponent,
     ShowOrdersComponent,
     OrderItemsComponent,
+    EditProductComponent,
   ],
 
   imports: [

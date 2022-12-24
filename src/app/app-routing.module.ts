@@ -24,6 +24,7 @@ import {OrderItemsComponent} from './Components/order-items/order-items.componen
 import {SellerGuard} from './Guards/seller-guard.guard';
 import {BuyerGuard} from './Guards/buyer-guard.guard';
 import {LoginAndRegisterGuard} from './Guards/login-and-register.guard';
+import {EditProductComponent} from './Components/edit-product/edit-product.component';
 
 
 const routes: Routes = [
@@ -46,10 +47,11 @@ const routes: Routes = [
       { path: 'usersetting', component: UserSettingComponent ,canActivate: [BuyerGuard] },
       { path: 'changepassword', component: ChangePasswordComponent ,canActivate: [BuyerGuard] },
       { path: 'Address', component: UserAddressComponent , canActivate: [BuyerGuard] },
-      { path: 'EditProfule', component: EditUserComponent ,canActivate: [BuyerGuard] },
+      { path: 'EditProfile', component: EditUserComponent ,canActivate: [BuyerGuard] },
       { path: 'SellerProduct', component: SellerProductsComponent, canActivate: [SellerGuard] },
       { path: 'order', component: ShowOrdersComponent ,canActivate: [BuyerGuard] },
-      { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [BuyerGuard] }
+      { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [BuyerGuard] },
+      {path:  'EditProduct/:id', component: EditProductComponent}
     ]
   },
   { path: 'register', component: RegisterComponent,canActivate: [LoginAndRegisterGuard] },

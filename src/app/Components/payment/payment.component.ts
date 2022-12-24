@@ -91,7 +91,7 @@ export class PaymentComponent implements OnInit {
                            this.OrderDB.push(<OrderItem>{
                              order_Details_id: od.id,
                              product_id: o.no,
-                             quantity: o.qauntity,
+                             quantity: o.quantity,
                            });
                          });
                           this.OrderService.addOrderitems(

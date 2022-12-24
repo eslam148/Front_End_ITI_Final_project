@@ -48,7 +48,7 @@ export class SearchResultComponent
   ngOnInit(): void {}
   addToCart(item: IProduct) {
     if (!this.CartService.itemInCart(item)) {
-      item.qauntity = 1;
+      item.quantity = 1;
       this.CartService.addToCart(item); //add items in cart
     }
   }
