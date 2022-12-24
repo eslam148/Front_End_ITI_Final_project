@@ -12,7 +12,7 @@
     <div class="mb-3">
       <label for="prdQuant" class="form-label">{{"Quantity"|translate}}</label>
       <input #prdQuantity="ngModel" type="number" class="form-control" name="prdQuant" id="prdQuant" required
-      [(ngModel)]="newPrd.quantity" [class.is-valid]="prdQuantity.valid" [class.is-invalid]="prdQuantity.invalid">
+      [(ngModel)]="newPrd.qauntity" [class.is-valid]="prdQuantity.valid" [class.is-invalid]="prdQuantity.invalid">
       <div class="alert alert-danger" [hidden]="prdQuantity.valid || prdQuantity.untouched">
         <small *ngIf="prdQuantity.errors?.['required']">{{"Quantity is Required"|translate}}</small>
       </div>

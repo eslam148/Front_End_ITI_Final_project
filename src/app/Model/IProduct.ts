@@ -9,6 +9,7 @@ export interface IProduct {
   discountID: number;
   discount: string;
   quantity: number;
+  qauntity?:number;
   selledQauntity: number;
   sellerId: String;
   files: FileToUpload[];

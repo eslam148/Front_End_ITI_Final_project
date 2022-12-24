@@ -51,6 +51,7 @@ export class AddProductComponent implements OnInit, OnChanges {
     this.newPrd.files = this.files;
     let userInfo: IUserInfo = this.loadUserInfo();
     this.newPrd.sellerId = userInfo.id;
+    console.log(this.newPrd.quantity);
     this.productService.addNewProduct(this.newPrd).subscribe((p) => {
       console.log(p);
       this.router.navigate(['/SellerProduct']);
