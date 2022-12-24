@@ -48,7 +48,7 @@ export class CartService {
     localStorage.removeItem('cart_items');
   }
   itemInCart(item: IProduct): boolean {
-    return this.items.findIndex((o) => o.no === item.no) > -1;
+    return this.items.findIndex((o) => o.id === item.id) > -1;
   }
   AddOrder(Order: IProduct[]) {
     localStorage.setItem('Order', JSON.stringify(Order));
