@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/Model/IProduct';
+import { CartService } from 'src/app/Services/cart.service';
 import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  product: IProduct | undefined;
+  product!: IProduct ;
 
   constructor(
     private productservice: ProductService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private cartService :CartService
   ) {}
 
   ngOnInit(): void {
@@ -37,5 +39,12 @@ export class ProductDetailsComponent implements OnInit {
   GetRating(Id:any) {
     let totalrating = +(this.ratingcontrol?.value || 0);
     this.productservice.addRating(+Id, totalrating).subscribe();
+  }
+  addToCart(item: IProduct) {
+    //  this.store.dispatch(increment());
+    if (!this.cartService.itemInCart(item)) {
+      item.quantity = 1;
+      this.cartService.addToCart(item); //add items in cart
+    }
   }
 }
