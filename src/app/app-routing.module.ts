@@ -51,7 +51,7 @@ const routes: Routes = [
       { path: 'SellerProduct', component: SellerProductsComponent, canActivate: [SellerGuard] },
       { path: 'order', component: ShowOrdersComponent ,canActivate: [BuyerGuard] },
       { path: 'orderItems/:id', component: OrderItemsComponent ,canActivate: [BuyerGuard] },
-      {path:  'EditProduct/:id', component: EditProductComponent}
+      {path:  'EditProduct/:id', component: EditProductComponent, canActivate: [SellerGuard]}
     ]
   },
   { path: 'register', component: RegisterComponent,canActivate: [LoginAndRegisterGuard] },

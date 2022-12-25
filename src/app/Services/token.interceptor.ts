@@ -9,6 +9,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>,next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('token');
+      const token2 = token ? JSON.parse(token) :'';
     const item = localStorage.getItem('ExpireDate');
     const expireDate =new Date(item ? JSON.parse(item) : Date.now())
     const DateNow = new Date();
@@ -18,7 +19,7 @@ export class TokenInterceptor implements HttpInterceptor {
        this.router.navigate(['/login']);
         return EMPTY;
       }
-       const bearer = `Bearer ${token}`;
+       const bearer = 'Bearer' +' '+ token2;
         const reqClone = req.clone({
           headers: new HttpHeaders({
             'Content-Type': 'application/json',
@@ -26,7 +27,7 @@ export class TokenInterceptor implements HttpInterceptor {
           }),
         });
 
-         return next.handle(req);
+         return next.handle(reqClone);
     }
     else{
         return next.handle(req);

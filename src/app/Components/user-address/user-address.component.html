@@ -1,4 +1,4 @@
-    <form class="row  mt-3" #AddressForm="ngForm" (ngSubmit)="addAddress()">
+    <form class="row  mt-3" #AddressForm="ngForm" >
         <div class="col-12">
             <label for="inputAddress" class="form-label">{{"Address"|translate}}</label>
             <input #add1="ngModel" type="text" class="form-control" id="inputAddress" name="inputAddress"
@@ -45,7 +45,7 @@
               </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-success" [disabled]="AddressForm.invalid">{{"Add"|translate}}</button>
+          <button type="submit" class="btn btn-success" (click)="addAddress()" [disabled]="AddressForm.invalid">{{"Add"|translate}}</button>
 
         </div>
       </form>
