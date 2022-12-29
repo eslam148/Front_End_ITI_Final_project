@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   public payPalConfig?: IPayPalConfig;
   constructor(private CartService: CartService) {
     this.productInCart = this.CartService.getItems();
-       this.calcTotal();
+    this.calcTotal();
 
     //   console.log(this.totalPrice);
   }
@@ -36,15 +36,29 @@ export class CartComponent implements OnInit {
   }
 
   //----- remove specific item
-  removeFromCart(item:IProduct) {
+  removeFromCart(item: IProduct) {
     this.CartService.removeItem(item);
     this.productInCart = this.CartService.getItems();
     this.calcTotal();
   }
-  private calcTotal(){
-     this.Prices = this.productInCart.map((i) => i.price * i.quantity);
-     if (this.Prices.length == 0)  this.totalPrice = 0;
-     else this.totalPrice = this.Prices.reduce((c, p) => p + c);
+  private calcTotal() {
+    this.Prices = this.productInCart.map((i) => i.price * i.quantity);
+    if (this.Prices.length == 0) this.totalPrice = 0;
+    else this.totalPrice = this.Prices.reduce((c, p) => p + c);
+  }
+  Up(index: number) {
+    if (!(this.productInCart[index].cartQuantity >= this.productInCart[index].quantity)) {
+      this.productInCart[index].cartQuantity += 1;
+    }
+  }
+  Down(index: number) {
+     if (!(this.productInCart[index].cartQuantity<=1))
+    {
+    this.productInCart[index].cartQuantity -= 1;
+    }
+    else{
+      this.removeFromCart(this.productInCart[index]);
+    }
 
   }
 }

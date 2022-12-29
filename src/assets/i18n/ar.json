@@ -152,6 +152,8 @@
   "Selled Quantity":"الكميه المباعه",
   "description":"الوصف",
   "published":"تم النشر",
-  "Edit Product":"تعديل المنتج"
+  "Edit Product":"تعديل المنتج",
+  "dir": "RTL",
+  "search":"بحث"
 
 }

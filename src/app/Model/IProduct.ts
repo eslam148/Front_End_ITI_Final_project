@@ -9,7 +9,7 @@ export interface IProduct {
   discountID: number;
   discount: string;
   quantity: number;
-  qauntity?:number;
+  qauntity?: number;
   selledQauntity: number;
   sellerId: String;
   files: FileToUpload[];
@@ -17,6 +17,7 @@ export interface IProduct {
   ratingCount: number;
   totalRating: number;
   progress?: number;
+  cartQuantity: number;
 }
 export interface FileToUpload {
   fileName: string ;

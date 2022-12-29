@@ -22,13 +22,17 @@ export class CartService {
   addToCart(addedItem: IProduct) {
     if(!this.itemInCart(addedItem)){
         this.store.dispatch(increment());
+          addedItem.cartQuantity = 1;
+          this.items.push(addedItem);
+          this.saveCart();
+          this.count++;
+          this.CountInCart.next(this.count);
+    }
+    else{
+      console.log(this.items);
     }
 
-    addedItem.quantity = 1;
-    this.items.push(addedItem);
-    this.saveCart();
-    this.count++;
-    this.CountInCart.next(this.count);
+
   }
   saveCart(): void {
     localStorage.setItem('cart_items', JSON.stringify(this.items));
@@ -48,7 +52,7 @@ export class CartService {
     localStorage.removeItem('cart_items');
   }
   itemInCart(item: IProduct): boolean {
-    return this.items.findIndex((o) => o.id === item.id) > -1;
+    return this.items.findIndex((o) => o.no === item.no) > -1;
   }
   AddOrder(Order: IProduct[]) {
     localStorage.setItem('Order', JSON.stringify(Order));

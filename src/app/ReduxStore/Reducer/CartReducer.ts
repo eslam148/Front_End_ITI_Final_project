@@ -6,14 +6,15 @@ export const initialState = +localStorage.getItem('cartCount')!;
 const _CartReducer = createReducer(
   initialState,
   on(increment, (state) => {
+   const count =  localStorage.getItem('cartCount')? localStorage.getItem('cartCount') : 0
     localStorage.setItem('cartCount', (state! + 1).toString());
-    return  state! + 1
+    return  +count! + 1
     }
     ),
   on(decrement, (state) => {
       localStorage.setItem('cartCount', (state! - 1).toString());
       return state! - 1;
-  
+
   }),
   on(reset, (state) => 0)
 );

@@ -148,9 +148,11 @@
   "Delivered": "Delivered",
   "Shipped": "Shipped",
   "Pending": "Pending",
-   "totalprice": "total price",
-    "Selled Quantity": "Selled Quantity",
-    "description":"description",
-    "published":"published",
-    "Edit Product":"Edit Product"
+  "totalprice": "total price",
+  "Selled Quantity": "Selled Quantity",
+  "description": "description",
+  "published": "published",
+  "Edit Product": "Edit Product",
+  "dir": "LTL",
+  "search": "search"
 }

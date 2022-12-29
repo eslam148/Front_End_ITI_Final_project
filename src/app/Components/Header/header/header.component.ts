@@ -7,7 +7,7 @@ import { AuthService } from '../../../Services/auth.service';
 import { CartService } from '../../../Services/cart.service';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {loginState} from 'src/app/Model/IUserLogIn';
+import {IUserInfo, loginState} from 'src/app/Model/IUserLogIn';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
   serchstd: string = '';
   CartCount: number = 0;
   count$: Observable<number>;
-
+  userInfo!: IUserInfo;
   constructor(
     public translate: TranslateService,
     private CategoryService: CategoryService,
@@ -34,10 +34,13 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
   }
   ngOnChanges(): void {
     this.CartService.event.subscribe((c) => (this.CartCount = c));
+     const item = window.localStorage.getItem('user');
+    if (item) this.userInfo = this.loadUserInfo();
     this.check();
   }
   ngAfterViewInit(): void {
-    console.log(this.categories);
+      const item = window.localStorage.getItem('user');
+      if (item) this.userInfo = this.loadUserInfo();
   }
   ngOnInit(): void {
     this.AuthService.flag.subscribe((f: loginState) => (this.loggedIn = f));
@@ -53,5 +56,9 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnChanges {
     this.AuthService.flag.subscribe((f) => (this.loggedIn = f));
     this.AuthService.logout().subscribe();
     this.router.navigate(['/home']);
+  }
+  loadUserInfo() {
+    const item = window.localStorage.getItem('user');
+    return item ? JSON.parse(item) : [];
   }
 }
