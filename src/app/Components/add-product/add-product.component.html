@@ -9,7 +9,7 @@
     </div>
 
 <div class="mb-3">
-      <label for="prdName" class="form-label">{{"Product Name"|translate}}</label>
+      <label for="prdName" class="form-label">{{"Product NameAr"|translate}}</label>
         <input #prdNameAr="ngModel"  type="text" class="form-control" name="prdName" id="prdName" required [(ngModel)]="newPrd.nameAr"
           [class.is-valid]="prdNameAr.valid" [class.is-invalid]="prdNameAr.invalid&& prdNameAr?.touched">
       <div class="alert alert-danger" [hidden]="prdNameAr.valid || prdNameAr.untouched">
@@ -44,7 +44,7 @@
           </div>
       </div>
        <div class="mb-3">
-        <label for="prddesc" class="form-label">{{"Discription"|translate}}</label>
+        <label for="prddesc" class="form-label">{{"descriptionAr"|translate}}</label>
           <textarea #prdDescAr="ngModel" class="form-control" name="prddesc" id="prddesc"
            required [(ngModel)]="newPrd.descriptionAr"
            [class.is-valid]="prdDescAr.valid" [class.is-invalid]="prdDescAr.invalid&& prdDescAr?.touched"></textarea>

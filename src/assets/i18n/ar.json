@@ -137,7 +137,7 @@
   "Images":"الصور",
   "Upload File":"تحميل الصور",
   "There is no products added yet":"لا توجد منتجات مضافة لهذا الحساب",
-  "product Name":"اسم المنتج",
+  "product Name":" اسم المنتج بالانجليزي",
   "Payment Number":"رقم عملية الدفع",
   "Detalis":"تفاصيل",
   "Remember Me":"تذكرني",
@@ -150,11 +150,14 @@
   "Pending" : "في انتظار الموافقة",
   "totalprice":"السعر الكلي",
   "Selled Quantity":"الكميه المباعه",
-  "description":"الوصف",
+  "description":"الوصف بالانجليزي",
   "published":"تم النشر",
   "Edit Product":"تعديل المنتج",
   "dir": "RTL",
   "search":"بحث",
-  "pending": "في انتظار الشحن"
+  "pending": "في انتظار الشحن",
+  "Product NameAr":"اسم المنتج بالعربي",
+  "descriptionAr":"الوصف بالعربي",
+  "descriptionTb":"الوصف"
 
 }

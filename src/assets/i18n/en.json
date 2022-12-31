@@ -137,7 +137,7 @@
   "Images": "Images",
   "Upload File": "Upload File",
   "There is no products added yet": "There is no products added yet",
-  "product Name": "product Name",
+  "product Name": "product Name in English",
   "Payment Number": "Payment Number",
   "Detalis": "Detalis",
   "Remember Me": "Remember Me",
@@ -150,10 +150,13 @@
   "Pending": "Pending",
   "totalprice": "total price",
   "Selled Quantity": "Selled Quantity",
-  "description": "description",
+  "description": "description in English",
   "published": "published",
   "Edit Product": "Edit Product",
   "dir": "LTL",
   "search": "search",
-   "pending": "pending"
+  "pending": "pending",
+  "Product NameAr": "Product Name in Arabic",
+  "descriptionAr": "description in Arabic",
+  "descriptionTb": "description"
 }

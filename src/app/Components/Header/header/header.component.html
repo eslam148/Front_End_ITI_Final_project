@@ -84,7 +84,7 @@
                 <li class="nav-item col-md-2  my-2" *ngIf="!loggedIn.loggedIn" >
                     <a class="btn btn-warning rounded-pill btn-sm text-center " routerLink="/register">{{"Register"|translate}}</a>
                   </li>
-                  <li class="nav-item text-white" *ngIf="loggedIn.loggedIn">
+                  <li class="nav-item text-white d-block d-md-none d-lg-block" *ngIf="loggedIn.loggedIn">
                     <span style="font-size: 1.5vw;">{{userInfo.firstName}}</span>
                   </li>
 
@@ -92,7 +92,7 @@
 
             </ul>
             <!-- d-flex justify-content-end ms-6 -->
-               <ul class="col-1 navbar-nav mb-2 mb-lg-0  navbar-nav collapse navbar-collapse" id="navbarNav" *ngIf="loggedIn.loggedIn">
+               <ul class=" navbar-nav mb-2 mb-lg-0   navbar-nav collapse navbar-collapse" id="navbarNav" *ngIf="loggedIn.loggedIn">
                       <li class="nav-item dropdown d-flex " *ngIf="loggedIn">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
