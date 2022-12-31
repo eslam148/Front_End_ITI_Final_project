@@ -8,6 +8,8 @@ import {IUserInfo} from 'src/app/Model/IUserLogIn';
 import { SubCategoryService } from 'src/app/Services/sub-category.service';
 import {ISubCategory} from 'src/app/Model/isub-category';
 import {IDiscount} from 'src/app/Model/IDiscount';
+import {Observable} from 'rxjs';
+import {select, Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-add-product',
@@ -19,23 +21,30 @@ export class AddProductComponent implements OnInit, OnChanges {
   subCategoryList: ISubCategory[] = [];
   newPrd: IProduct = {} as IProduct;
   prdList: IProduct[] = [];
+  lang: Observable<string>;
+
   //for uploud image
+  UploadImage: boolean = false;
   theFile: any[] = [];
   files: FileToUpload[] = [];
-  Discounts: IDiscount[]=[];
+  Discounts: IDiscount[] = [];
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
     private router: Router,
-    private SubCategoryService: SubCategoryService
-  ) {}
+    private SubCategoryService: SubCategoryService,
+    private store: Store<{ Language: string }>
+  ) {
+          this.lang = store.pipe(select('Language'));
+
+  }
   ngOnChanges(): void {}
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe((c) => {
       this.categoryList = c;
     });
-    this.productService.getDiscount().subscribe(d=> this.Discounts = d);
+    this.productService.getDiscount().subscribe((d) => (this.Discounts = d));
   }
   GetSubcat(CatId: number) {
     this.SubCategoryService.getSubCategory(CatId).subscribe(
@@ -56,6 +65,9 @@ export class AddProductComponent implements OnInit, OnChanges {
       console.log(p);
       this.router.navigate(['/SellerProduct']);
     });
+    setTimeout(() => {
+      this.router.navigate(['/SellerProduct']);
+    }, 2000);
   }
   onFileChange(event: any) {
     this.theFile = [];
@@ -65,9 +77,10 @@ export class AddProductComponent implements OnInit, OnChanges {
   }
   uploadFile(): void {
     for (let img of this.theFile) {
-      console.log(img)
+      console.log(img);
       this.readAndUploadFile(img);
     }
+    this.UploadImage = true;
   }
   private readAndUploadFile(theFile: any) {
     let file: FileToUpload = {

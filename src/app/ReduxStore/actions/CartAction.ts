@@ -6,7 +6,6 @@ export const reset = createAction('[Counter Component] Reset');
 
 
 
-export const login = createAction(
-  '[Login Page] Login',
-  props<{ username: string; password: string }>()
-);
+export const languageAR = createAction('languageAR');
+
+export const languageEN = createAction('languageEN');

@@ -5,6 +5,8 @@ import { Component, OnDestroy, OnInit, AfterViewInit, OnChanges, SimpleChanges }
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from './../../Services/cart.service';
 import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {select, Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-search-result',
@@ -17,25 +19,29 @@ export class SearchResultComponent
   products: IProduct[] = [];
   filterdProducts: IProduct[] = [];
   searchstring: string = '';
+  lang: Observable<string>;
 
   constructor(
     private ProductService: ProductService,
     private _Route: ActivatedRoute,
     private CartService: CartService,
-    private router: Router
+    private router: Router,
+    private store: Store<{ Language: string }>
   ) {
+      this.lang = store.pipe(select('Language'));
+
     this._Route.paramMap.subscribe((param) => {
       this.searchstring = param.get('ser') ? (param.get('ser') as string) : '';
       console.log(this.searchstring);
-    });
+      this.ProductService.getAllProducts().subscribe((products) => {
+        this.filterdProducts = this.products = products;
+        //this.filterdProducts.filter((product) => product.name.startsWith(this.searchstring))
+        console.log(this.filterdProducts);
+        this.search();
+      });
 
-    this.ProductService.getAllProducts().subscribe((products) => {
-      this.filterdProducts = this.products = products;
       console.log(this.products);
-      this.search();
     });
-
-    console.log(this.products);
   }
   ngOnChanges(changes: SimpleChanges): void {
     //this.search()
@@ -53,6 +59,7 @@ export class SearchResultComponent
     }
   }
   search(): void {
+    console.log(this.searchstring);
     if (this.searchstring) {
       console.log(this.products);
       this.filterdProducts = this.products.filter(

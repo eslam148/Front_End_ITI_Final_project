@@ -36,7 +36,7 @@ import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { UserAddressComponent } from './Components/user-address/user-address.component';
 import { EditUserComponent } from './Components/edit-user/edit-user.component';
 import {StoreModule} from '@ngrx/store';
-import {CartReducer} from './ReduxStore/Reducer/CartReducer';
+import {CartReducer, LanguageReducer} from './ReduxStore/Reducer/CartReducer';
 import { ShowOrdersComponent } from './Components/show-orders/show-orders.component';
 import { OrderItemsComponent } from './Components/order-items/order-items.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -81,7 +81,7 @@ import { EditProductComponent } from './Components/edit-product/edit-product.com
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ Cart: CartReducer }),
+    StoreModule.forRoot({ Cart: CartReducer, Language: LanguageReducer }),
     TranslateModule.forRoot({
       defaultLanguage: 'ar',
       loader: {
@@ -96,7 +96,7 @@ import { EditProductComponent } from './Components/edit-product/edit-product.com
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

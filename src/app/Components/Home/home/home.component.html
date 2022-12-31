@@ -69,9 +69,13 @@
       <div class="card-body bg-light text-center">
         <div class="mb-2">
           <h6 class="font-weight-semibold mb-2">
-            <a href="#" class="mb-2">{{prd.category}}</a>
+            <a *ngIf="(lang |async)=='en'"  href="#" class="mb-2">{{prd.category}}</a>
+            <a *ngIf="(lang |async)=='ar'" href="#" class="mb-2">{{prd.categoryAr}}</a>
+
           </h6>
-          <a href="#" class="text-muted">{{prd.name}}</a>
+          <a *ngIf="(lang |async)=='en'"  href="#" class="text-muted">{{prd.name}}</a>
+          <a *ngIf="(lang |async)=='ar'"  href="#" class="text-muted">{{prd.nameAr}}</a>
+
         </div>
         <h3 class="mb-0 font-weight-semibold">{{prd.price}}</h3>
          <div>
@@ -112,7 +116,10 @@
               </div>
               <div class="part-2">
                 <h1>
-                  <a [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}}</a><br />
+
+                  <a  *ngIf="(lang |async)=='en'" [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}}</a><br />
+                  <a  *ngIf="(lang |async)=='ar'" [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.nameAr}}</a><br />
+
                 </h1>
                 <div>
                   <ngb-rating [max]="5" [rate]="+(prd.totalRating / prd.ratingCount).toFixed(2)" [readonly]="true" ></ngb-rating>
@@ -150,9 +157,13 @@
               <div class="card-body bg-light text-center">
                 <div class="mb-2">
                   <h6 class="font-weight-semibold mb-2">
-                    <a href="#" class="mb-2">{{prd.category}}</a>
+
+                    <a *ngIf="(lang |async)=='en'" href="#" class="mb-2">{{prd.category}}</a>
+                    <a *ngIf="(lang |async)=='ar'" href="#" class="mb-2">{{prd.categoryAr}}</a>
                   </h6>
-                  <a  [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}} </a>
+                  <a *ngIf="(lang |async)=='en'"  [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.name}} </a>
+                  <a *ngIf="(lang |async)=='ar'"  [routerLink]="['/productdetails',prd.no]" class="product-title">{{prd.nameAr}} </a>
+
                 </div>
                 <h3 class="mb-0 font-weight-semibold">{{prd.price-(+prd.discount)*(prd.price)}}</h3>
                 <h3 class="mb-0 font-weight-semibold"><del>{{prd.price}}</del></h3>

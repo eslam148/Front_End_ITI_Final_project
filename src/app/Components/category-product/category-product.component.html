@@ -7,8 +7,11 @@
         <li class="list-group-item border-0 row">{{"Category"|translate}}
           <ul class="list-group" *ngFor="let item of subList">
             <li class="list-group-item  border-0 row" style="font-size: 1vw;">
-              <a [routerLink]="['/category/sub',item.id]" class="col-lg-3 col-md-6 col-sm-12 mb-3 text-decoration-none row">
+              <a *ngIf="(lang |async)=='en'"  [routerLink]="['/category/sub',item.id]" class="col-lg-3 col-md-6 col-sm-12 mb-3 text-decoration-none row">
                 {{item.brandName}}
+              </a>
+               <a *ngIf="(lang |async)=='ar'"  [routerLink]="['/category/sub',item.id]" class="col-lg-3 col-md-6 col-sm-12 mb-3 text-decoration-none row">
+                {{item.brandNameAr}}
               </a>
             </li>
           </ul>
@@ -45,9 +48,12 @@
       <div class="card-body bg-light text-center">
         <div class="mb-2">
           <h6 class="font-weight-semibold mb-2">
-            <a href="#" class="mb-2">{{prd.category}}</a>
+            <a *ngIf="(lang |async)=='en'"  href="#" class="mb-2">{{prd.category}}</a>
+            <a *ngIf="(lang |async)=='ar'" href="#" class="mb-2">{{prd.categoryAr}}</a>
+
           </h6>
-          <a href="#" class="text-muted">{{prd.name}}</a>
+          <a *ngIf="(lang |async)=='en'"  href="#" class="text-muted">{{prd.name}}</a>
+          <a *ngIf="(lang |async)=='ar'"  href="#" class="text-muted">{{prd.nameAr}}</a>
         </div>
         <h3 class="mb-0 font-weight-semibold">{{prd.price}}</h3>
         <div>

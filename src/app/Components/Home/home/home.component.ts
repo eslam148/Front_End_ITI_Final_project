@@ -13,15 +13,17 @@ import {Observable} from 'rxjs';
 export class HomeComponent implements OnInit {
   productList: IProduct[] = [];
   bestSellerList: IProduct[] = [];
- DiscountedProducts: IProduct[] = [];
+  DiscountedProducts: IProduct[] = [];
   image: string[] = [];
   count$: Observable<number>;
+  lang: Observable<string>;
   constructor(
     private produtService: ProductService,
     private CartService: CartService,
-    private store: Store<{ Cart: number }>
+    private store: Store<{ Cart: number, Language: string }>
   ) {
     this.count$ = store.pipe(select('Cart'));
+     this.lang = store.pipe(select('Language'));
   }
 
   ngOnInit(): void {
@@ -31,11 +33,13 @@ export class HomeComponent implements OnInit {
     this.produtService
       .getBestSellerproducts()
       .subscribe((p) => (this.bestSellerList = p));
-      this.produtService.GetDescountedProducts().subscribe(p=>this.DiscountedProducts=p);
+    this.produtService
+      .GetDescountedProducts()
+      .subscribe((p) => (this.DiscountedProducts = p));
   }
 
   addToCart(item: IProduct) {
     //  this.store.dispatch(increment());
-      this.CartService.addToCart(item); //add items in cart
+    this.CartService.addToCart(item); //add items in cart
   }
 }

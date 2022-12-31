@@ -42,9 +42,10 @@ export class CartService {
     return this.items;
   }
 
-  loadCart() {
+  loadCart():IProduct[] {
     const item = window.localStorage.getItem('cart_items');
     this.items = item ? JSON.parse(item) : [];
+    return item ? JSON.parse(item) : [];
   }
 
   clearCart() {
@@ -52,7 +53,8 @@ export class CartService {
     localStorage.removeItem('cart_items');
   }
   itemInCart(item: IProduct): boolean {
-    return this.items.findIndex((o) => o.no === item.no) > -1;
+    const iteminCart =  this.loadCart();
+    return iteminCart.findIndex((o) => o.no === item.no) > -1;
   }
   AddOrder(Order: IProduct[]) {
     localStorage.setItem('Order', JSON.stringify(Order));
@@ -63,7 +65,7 @@ export class CartService {
   }
   removeItem(item:IProduct) {
     this.store.dispatch(decrement());
-    const index = this.items.findIndex((o) => o.id === item.id);
+    const index = this.items.findIndex((o) => o.no === item.no);
     if (index > -1) {
       this.items.splice(index, 1);
       this.saveCart();

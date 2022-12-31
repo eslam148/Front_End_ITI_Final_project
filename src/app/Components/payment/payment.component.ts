@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
   ) {
   this.Order = this.CartService.GetOrder();
   this.Order.forEach((o) => {
-    this.totalPrice += +o.price;
+    this.totalPrice += +o.price * +o.cartQuantity;
   });
 
   }
@@ -91,13 +91,14 @@ export class PaymentComponent implements OnInit {
                            this.OrderDB.push(<OrderItem>{
                              order_Details_id: od.id,
                              product_id: o.no,
-                             quantity: o.quantity,
+                             quantity: o.cartQuantity,
                            });
                          });
                           this.OrderService.addOrderitems(
                             this.OrderDB
                           ).subscribe((i) => {
-                            localStorage.setItem('cart_items', '');
+                            localStorage.removeItem('cart_items');
+                            localStorage.removeItem('cartCount');
                           });
                      });
 

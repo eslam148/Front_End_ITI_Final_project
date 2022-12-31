@@ -30,4 +30,5 @@ export interface GetOrderItem {
   name: string;
   quantity: number;
   price: number;
+  nameAr: string;
 }

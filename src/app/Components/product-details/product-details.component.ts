@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import {select, Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
 import { IProduct } from 'src/app/Model/IProduct';
 import { CartService } from 'src/app/Services/cart.service';
 import { ProductService } from 'src/app/Services/product.service';
@@ -11,13 +13,17 @@ import { ProductService } from 'src/app/Services/product.service';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent implements OnInit {
-  product!: IProduct ;
+  product!: IProduct;
+  lang: Observable<string>;
 
   constructor(
     private productservice: ProductService,
     private activateRoute: ActivatedRoute,
-    private cartService :CartService
-  ) {}
+    private cartService: CartService,
+    private store: Store<{ Language: string }>
+  ) {
+      this.lang = store.pipe(select('Language'));
+  }
 
   ngOnInit(): void {
     this.activateRoute.paramMap.subscribe((paramMap) => {
@@ -36,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
   Finalrating: any;
 
   ratingcontrol = new FormControl(0);
-  GetRating(Id:any) {
+  GetRating(Id: any) {
     let totalrating = +(this.ratingcontrol?.value || 0);
     this.productservice.addRating(+Id, totalrating).subscribe();
   }

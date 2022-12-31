@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductService } from '../../Services/product.service';
 import { IProduct } from './../../Model/IProduct';
 import { CartService } from '../../Services/cart.service';
@@ -10,7 +10,7 @@ import { IOrder } from './../../Model/IOrder';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit,OnChanges {
   productInCart: IProduct[] = [];
   Prices!: number[];
   totalPrice: number = 0;
@@ -22,11 +22,15 @@ export class CartComponent implements OnInit {
 
     //   console.log(this.totalPrice);
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.Changes();
+  }
   Changes() {
-    this.Prices = this.productInCart.map((i) => i.price * i.quantity);
+    this.Prices = this.productInCart.map((i) => i.price * i.cartQuantity);
     this.totalPrice = this.Prices.reduce((c, p) => p + c);
   }
   ngOnInit(): void {
+   this.Changes();
     //this.initConfig();
   }
   order() {
@@ -40,9 +44,10 @@ export class CartComponent implements OnInit {
     this.CartService.removeItem(item);
     this.productInCart = this.CartService.getItems();
     this.calcTotal();
+
   }
   private calcTotal() {
-    this.Prices = this.productInCart.map((i) => i.price * i.quantity);
+    this.Prices = this.productInCart.map((i) => i.price * i.cartQuantity);
     if (this.Prices.length == 0) this.totalPrice = 0;
     else this.totalPrice = this.Prices.reduce((c, p) => p + c);
   }
@@ -50,6 +55,8 @@ export class CartComponent implements OnInit {
     if (!(this.productInCart[index].cartQuantity >= this.productInCart[index].quantity)) {
       this.productInCart[index].cartQuantity += 1;
     }
+         this.Changes();
+
   }
   Down(index: number) {
      if (!(this.productInCart[index].cartQuantity<=1))
@@ -59,6 +66,8 @@ export class CartComponent implements OnInit {
     else{
       this.removeFromCart(this.productInCart[index]);
     }
+     this.Changes();
+
 
   }
 }

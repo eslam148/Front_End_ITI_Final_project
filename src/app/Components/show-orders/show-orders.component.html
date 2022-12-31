@@ -14,10 +14,10 @@
         <th scope="row" >{{i+1}}</th>
         <td>{{item.payment_id}}</td>
         <td>{{item.total}}</td>
-        <td *ngIf="item.progress == 0">{{"Pending"|translate}}</td>
-        <td *ngIf="item.progress == 1">{{"Shipped"|translate}}</td>
-        <td *ngIf="item.progress == 2">{{"Delivered"|translate}}</td>
-        <td><a class="btn btn-info" [routerLink]="['/orderItems',item.id]">{{"Detalis"|translate}}</a></td>
+        <td *ngIf="item.progress == 0"><span class="bg-danger badge p-2 fs-5">{{"pending"|translate}}</span></td>
+        <td *ngIf="item.progress == 1"><span class="bg-info badge p-2 fs-5">{{"Shipped"|translate}}</span></td>
+        <td *ngIf="item.progress == 2"><span class="bg-success badge p-2 fs-5">{{"Delivered"|translate}}</span></td>
+        <td><a class="btn btn-primary" [routerLink]="['/orderItems',item.id]">{{"Detalis"|translate}}</a></td>
       </tr>
       <tr>
     </tbody>

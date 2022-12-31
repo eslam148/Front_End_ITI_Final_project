@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'category/sub/:sub_id', component: CategoryProductComponent },
       { path: 'contactus', component: ContactUSComponent },
       { path: 'productdetails/:no', component: ProductDetailsComponent },
-      { path: 'searching/:ser?', component: SearchResultComponent },
+      { path: 'searching/:ser', component: SearchResultComponent },
       { path: 'searching', component: SearchResultComponent },
       { path: 'aboutus', component: AboutUsComponent },
       { path: 'usersetting', component: UserSettingComponent ,canActivate: [BuyerGuard] },

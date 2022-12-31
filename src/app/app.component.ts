@@ -13,6 +13,7 @@ export class AppComponent {
     public translate: TranslateService,
     private AuthService: AuthService,
   ) {
+    console.log(translate);
     const item = window.localStorage.getItem('token');
     let token: string = item ? JSON.parse(item) : '';
     if (item == null) {

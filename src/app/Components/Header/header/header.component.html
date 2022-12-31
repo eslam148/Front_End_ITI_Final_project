@@ -46,8 +46,8 @@
                 </li>
                 <div class="col-md-2 mx-2 my-2 ">
                   <li class="nav-item d-flex ">
-                      <button (click)="translate.use('en')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.80vw;" href="#">EN</button>
-                      <button (click)="translate.use('ar')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.75vw;" href="#">اللغه العربيه</button>
+                      <button (click)="changeLanguage('en')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.80vw;" href="#">EN</button>
+                      <button (click)="changeLanguage('ar')" class="btn btn-outline-light mx-1 col-5 " style="font-size: 0.75vw;" href="#">اللغه العربيه</button>
                   </li>
                 </div>
               <ng-container *ngIf="loggedIn.Role == 'Seller'">
@@ -84,7 +84,7 @@
                 <li class="nav-item col-md-2  my-2" *ngIf="!loggedIn.loggedIn" >
                     <a class="btn btn-warning rounded-pill btn-sm text-center " routerLink="/register">{{"Register"|translate}}</a>
                   </li>
-                  <li class="nav-item text-white" *ngIf="!loggedIn.loggedIn">
+                  <li class="nav-item text-white" *ngIf="loggedIn.loggedIn">
                     <span style="font-size: 1.5vw;">{{userInfo.firstName}}</span>
                   </li>
 
@@ -125,9 +125,9 @@
             <ul class="navbar-nav collapse navbar-collapse"  id="navbarNav2">
               <ng-container *ngFor="let cat of categories;let i=index;">
                 <li class="nav-item text-light">
-
-                  <a class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.name}}</a>
-              </li>
+                  <a *ngIf="(lang |async)=='en'" class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.name}}</a>
+                  <a *ngIf="(lang |async)=='ar'" class="nav-link text-light"  routerLinkActive="active" aria-current="page" [routerLink]="['/category',cat.id]">{{cat.nameAr}}</a>
+                </li>
               </ng-container>
 
 

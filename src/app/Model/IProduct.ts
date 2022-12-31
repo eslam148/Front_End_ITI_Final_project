@@ -18,6 +18,9 @@ export interface IProduct {
   totalRating: number;
   progress?: number;
   cartQuantity: number;
+  nameAr: string;
+  descriptionAr: string;
+  categoryAr: string;
 }
 export interface FileToUpload {
   fileName: string ;
