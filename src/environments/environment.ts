@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  urlAPI: 'http://localhost:3000',
-  urlCategories: 'http://localhost:5136/api',
-  baseURL: 'http://localhost:5136/api',
-  BaseURL: 'http://localhost:5136/api',
-  ImagesUrl: 'http://localhost:5291/Content/Images/',
+  urlAPI: 'http://islam1998-001-site1.itempurl.com/api', //'http://localhost:3000',
+  urlCategories: 'http://islam1998-001-site1.itempurl.com/api', // 'http://localhost:5136/api',
+  baseURL: 'http://islam1998-001-site1.itempurl.com/api', //'http://localhost:5136/api',
+  BaseURL: 'http://islam1998-001-site1.itempurl.com/api', // 'http://localhost:5136/api',
+  ImagesUrl: 'http://eslam1998-001-site1.gtempurl.com/wwwroot/Images/', //'http://localhost:5291/Content/Images/',
 };
 
 /*
